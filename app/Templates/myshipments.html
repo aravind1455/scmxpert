@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, 
+				initial-scale=1.0">
+    <title>NEW SHIPMENTS</title>
+    <link rel="stylesheet" href="/project/Css/dashboard.css">
+    <link rel="stylesheet" href="/project/Css/mainbox.css">
+    <link rel="stylesheet" href="/project/Css/myshipments.css">
+
+</head>
+
+<body>
+
+    <!-- for header part -->
+    <header>
+
+        <div class="logosec">
+            <div class="logo">EXAFLUENCE</div>
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
+                class="icn menuicn" id="menuicn" alt="menu-icon">
+        </div>
+            <div class="dp">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
+                    class="dpicn" alt="dp">
+            </div>
+        </div>
+
+    </header>
+    <div class="main-container">
+        <div class="navcontainer">
+            <nav class="nav">
+                <div class="nav-upper-options">
+					<div class="nav-option option1"> 
+						<img src="/project/IMAGES/EXF.jpg" class="dp" alt="dashboard"> 
+                        <h3>EXAFLUENCE</h3> 
+					</div> 
+					<div class="nav-option option">
+						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+							class="nav-img" alt="dashboard">
+						<a href="/dashboard"><h3> Dashboard</h3></a>
+					</div>
+					<div class="nav-option option">
+						<img src="/project/Images/user.png"
+							class="nav-img" alt="account">
+						<a href="/myaccount"><h3> Myaccount</h3></a>
+					</div>
+					<div class="option2 nav-option">
+						<img src="/project/Images/Cloud-Database.jpg"
+							class="nav-img" alt="articles">
+						<a href="/shipmenttable"><h3>MY SHIPMENT</h3></a>
+					</div>
+
+					<div class="nav-option option3">
+						<img src="/project/Images/download (1).jpg"
+							class="nav-img" alt="report">
+							<a href="/myshipments"><h3>NEW SHIPMENT</h3></a>
+					</div>
+
+					<div class="nav-option option4">
+						<img src="/project/Images/device data.webp"
+							class="nav-img" alt="institution">
+							<a href="/devicedata"><h3> DEVICE DATA</h3></a>
+					</div>
+					<div class="nav-option option4">
+						<img src="/project/Images/logout.jpg"
+							class="nav-img" alt="institution">
+							<a href="/login"><h3>LOG-OUT</h3></a>
+					</div>
+				</div>
+            </nav>
+        </div>
+        <div class="main">
+            <div class="container">
+                <form action="/myshipments" method="post">
+                    <div class="form first">
+                        <div class="details personal">
+                            <span class="title">NEW SHIPMENTS</span>
+
+                            <div class="fields">
+                                <div class="input-field">
+                                    <label>Shipment Number</label>
+                                    <input type="text"  name="shipment_number" placeholder="Shipment Number" required>
+                                </div>
+
+                                <div class="input-field">
+                                    <label>Container Number</label>
+                                    <input type="number" name="container_number" placeholder="Container Number" required>
+                                </div>
+
+                                <div class="input-field">
+                                    <label>Route Details</label>
+                                    <select type="text" name="route_details" placeholder="Route Details" id="email" required>
+                                        <option>HYDERABAD-MUMBAI</option>
+                                        <option>TIRUPATI-BANGLORE</option>
+                                        <option>CHENNAI-MYSORE</option>
+                                    </select>
+                                </div>
+                                <div class="input-field">
+                                    <label>Goods Type</label>
+                                    <input type="text" name="goods_type" placeholder="Goods Type" required>
+                                </div>
+
+                                <div class="input-field">
+                                    <label>Device</label>
+                                    <input type="text" name="device" placeholder="Device" required>
+                                </div>
+
+                                <div class="input-field">
+                                    <label>Expected Delivery Date</label>
+                                    <input type="date" name="expected_delivery"  placeholder="Expected Delivery Date" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="details ID">
+                            <div class="fields">
+                                <div class="input-field">
+                                    <label>PO Number</label>
+                                    <input type="number" name="po_number" placeholder="PO Number" required>
+                                </div>
+
+                                <div class="input-field">
+                                    <label>Delivery Number</label>
+                                    <input type="number" name="delivery_number" placeholder="Delivery Number" required>
+                                </div>
+
+                                <div class="input-field">
+                                    <label>NDC Number</label>
+                                    <input type="number" name="ndc_number" placeholder="NDC Number" required>
+                                </div>
+
+                                <div class="input-field">
+                                    <label>Batch Id</label>
+                                    <input type="number" name="batch_id" placeholder="Batch Id" required>
+                                </div>
+
+                                <div class="input-field">
+                                    <label>Serial Number Of Goods</label>
+                                    <input type="number" name="serial_number" placeholder="Serial Number Of Goods" required>
+                                </div>
+
+                                <div class="input-field">
+                                    <label>Shipment Description</label>
+                                    <input type="text" name="shipment_description" placeholder="Shipment Description" required>
+                                </div>
+                                
+                            </div>
+                            <button class="nextBtn" >
+                                <span class="btnText">Submit</span>
+                                <i class="uil uil-navigator"></i>
+                            </button>
+                           <br>
+                            <!-- <button class="nextBtn" type="clear">
+                                <span class="btnText">Clear</span>
+                                <i class="uil uil-navigator"></i>
+                            </button> -->
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="/project/Javascript/dashboard.js"></script>
+    <script src="/project/Javascript/myshipment.js"></script>
+   
+    </script>
+</form>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+    <link rel="stylesheet" href="/project/Css/signup.css" />
+</head>
+<body>
+
+<div class="container">
+  <div class="center">
+    <h1>Register</h1>
+    <form id="signupForm" method="post" action="/signup">
+      <div class="txt_field">
+        <input type="text" name="username" id="username" required>
+        <span></span>
+        <label>Name</label>
+        <p id="usernameError" class="error"></p>
+      </div>
+      <div class="txt_field">
+        <input type="email" name="email" id="email" required>
+        <span></span>
+        <label>Email</label>
+        <p id="emailError" class="error"></p>
+      </div>
+      <div class="txt_field">
+        <input type="password" name="password" id="password" required>
+        <span></span>
+        <label>Password</label>
+        <p id="passwordError" class="error"></p>
+      </div>
+      <div class="txt_field">
+        <input type="password" name="confirm" id="confirm" required>
+        <span></span>
+        <label>Confirm Password</label>
+        <p id="confirmError" class="error"></p>
+      </div>
+      <input name="submit" type="submit" value="Sign Up" onclick="validateForm()">
+      <div class="signup_link">
+        Have an Account ? <a href="/login">Login Here</a>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="/app/Javascript/signup.js"></script>
+</body>
+</html>

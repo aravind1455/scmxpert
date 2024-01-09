@@ -1,0 +1,82 @@
+
+/* default styling. Nothing to do with freexing first row and column */
+main {display: flex;}
+main > * {border: 1px solid;}
+table {border-collapse: collapse; font-family: helvetica}
+td, th {border: 1px solid;
+ padding: 10px;
+ min-width: 200px;
+ background-color: antiquewhite;
+ box-sizing: border-box;
+ text-align: left;
+}
+body{
+    display: absolute;
+    height: 100vh;
+    background: url("/project/Images/db.jpg");
+    background-size: cover;
+}
+.table-container {
+ position: absolute;
+ max-height: 600px;
+ width: 1600px;
+ overflow: scroll;
+ margin:20px 0px 0px 550px;
+}
+ 
+thead th {
+ position: -webkit-sticky;
+ position: sticky;
+ top: 0;
+ z-index: 2;
+ background: hsl(20, 50%, 70%);
+}
+ 
+thead th:first-child {
+ left: 0;
+ z-index: 3;
+}
+ 
+tfoot {
+ position: -webkit-sticky;
+ bottom: 0;
+ z-index: 2;
+}
+ 
+tfoot td {
+ position: sticky;
+ bottom: 0;
+ z-index: 2;
+ background: hsl(20, 50%, 70%);
+}
+ 
+tfoot td:first-child {
+ z-index: 3;
+}
+ 
+tbody {
+ overflow: scroll;
+ height: 200px;
+}
+ 
+
+tr > :first-child {
+ box-shadow: inset 0px 1px black;
+}
+tr:nth-child(even) {
+    background-color: rgba(150, 212, 212, 0.4);
+  }
+  
+  th:nth-child(even),td:nth-child(even) {
+    background-color: rgba(150, 212, 212, 0.4);
+  }
+  .table1{
+    background-color: aqua;
+    height:60px;
+    width:1000px;
+    text-align:center;
+    font-size:30px;
+    margin:300px 0px 0px 800px;
+  }
+
+
