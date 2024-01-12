@@ -10,7 +10,12 @@
 	<link rel="stylesheet" href="/project/Css/dashboard.css">
 	<link rel="stylesheet" href="/project/Css/mainbox.css">
 	<link rel="stylesheet" href="/project/Css/devicedata.css">
-	
+	<style>
+		 .table1 select,
+    .table1 button {
+        font-size: 25px; /* Adjust the size as needed */
+    }
+	</style>
 
 </head>
 <body>
@@ -23,9 +28,9 @@
 				class="icn menuicn" id="menuicn" alt="menu-icon">
 				<div class="logo">EXAFLUENCE</div>
 		</div>
-		<div class="dp">
+		<a href="/myaccount"><div class="dp">
 			<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
-				class="dpicn" alt="dp">
+				class="dpicn" alt="dp"></a>
 		</div>
 	</header>
 	<div class="main-container">
@@ -44,38 +49,45 @@
                     <div class="nav-option option">
 						<img src="/project/Images/user.png"
 							class="nav-img" alt="account">
-						<a href="/myaccount"><h3> Myaccount</h3></a>
+						<a href="/myaccount"><h3>My Account</h3></a>
 					</div>
 
 					<div class="option2 nav-option">
-						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
+						<img src="/project/Images/Cloud-Database.jpg"
 							class="nav-img" alt="articles">
 						<a href="/shipmenttable"><h3>MY SHIPMENT</h3></a>
 					</div>
 
 					<div class="nav-option option3">
-						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
+						<img src="/project/Images/download (1).jpg"
 							class="nav-img" alt="report">
 							<a href="/myshipments"><h3>NEW SHIPMENT</h3></a>
 					</div>
 
 					<div class="nav-option option4">
-						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
+						<img src="/project/Images/device data.webp"
 							class="nav-img" alt="institution">
 							<a href="/devicedata"><h3> DEVICE DATA</h3></a>
 					</div>
 					<div class="nav-option option4">
-						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
-							class="nav-img" alt="institution">
-							<a href="/login"><h3>LOG-OUT</h3></a>
-					</div>
+						<img src="/project/IMAGES/EXF.jpg" class="dp" alt="dashboard">
+						<button onclick="logout()" id="logout"><h3>LOG-OUT</h3></button>
+				</div>
 				</div>
 			</nav>
 		</div>
 		<div class="main">
 			<div>
 
-				<div style="color:red" class="table1">MY SHIPMENTS</div>
+				<div style="color:red" class="table1"><select type="text" id="route_details" placeholder="Route Details"  required>
+					<option>DEVICE ID</option>
+					<option></option>
+					<option></option>
+				</select>
+				<button class="nextBtn" id="submit">GET DATA
+				</button></div>
+				
+
 
 				<div class="table-container">
 					<div class="table-horizontal-container">
@@ -137,6 +149,7 @@
 	  
 	  </script>
 	<script src="/project/Javascript/dashboard.js"></script>
+	<script src="/project/Javascript/log.js"></script>
 </body>
 
 </html>

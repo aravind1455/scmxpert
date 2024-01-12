@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="/project/Css/dashboard.css">
     <link rel="stylesheet" href="/project/Css/mainbox.css">
     <link rel="stylesheet" href="/project/Css/myshipments.css">
+    <script src="/project/Javascript/dashboard.js"></script>
+    <script src="/project/Javascript/myshipment.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
 
 </head>
 
@@ -23,10 +27,10 @@
             <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
                 class="icn menuicn" id="menuicn" alt="menu-icon">
         </div>
-            <div class="dp">
-                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
-                    class="dpicn" alt="dp">
-            </div>
+        <a href="/myaccount"><div class="dp">
+			<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
+				class="dpicn" alt="dp"></a>
+		</div>
         </div>
 
     </header>
@@ -46,7 +50,7 @@
 					<div class="nav-option option">
 						<img src="/project/Images/user.png"
 							class="nav-img" alt="account">
-						<a href="/myaccount"><h3> Myaccount</h3></a>
+						<a href="/myaccount"><h3>My Account</h3></a>
 					</div>
 					<div class="option2 nav-option">
 						<img src="/project/Images/Cloud-Database.jpg"
@@ -66,16 +70,15 @@
 							<a href="/devicedata"><h3> DEVICE DATA</h3></a>
 					</div>
 					<div class="nav-option option4">
-						<img src="/project/Images/logout.jpg"
-							class="nav-img" alt="institution">
-							<a href="/login"><h3>LOG-OUT</h3></a>
-					</div>
+						<img src="/project/IMAGES/EXF.jpg" class="dp" alt="dashboard">
+						<button onclick="logout()" id="logout"><h3>LOG-OUT</h3></button>
+				</div>
 				</div>
             </nav>
         </div>
         <div class="main">
             <div class="container">
-                <form action="/myshipments" method="post">
+                <form >
                     <div class="form first">
                         <div class="details personal">
                             <span class="title">NEW SHIPMENTS</span>
@@ -83,17 +86,17 @@
                             <div class="fields">
                                 <div class="input-field">
                                     <label>Shipment Number</label>
-                                    <input type="text"  name="shipment_number" placeholder="Shipment Number" required>
+                                    <input type="text"   id="shipment_number" placeholder="Shipment Number" required>
                                 </div>
 
                                 <div class="input-field">
                                     <label>Container Number</label>
-                                    <input type="number" name="container_number" placeholder="Container Number" required>
+                                    <input type="number" id="container_number" placeholder="Container Number" required>
                                 </div>
 
                                 <div class="input-field">
                                     <label>Route Details</label>
-                                    <select type="text" name="route_details" placeholder="Route Details" id="email" required>
+                                    <select type="text" id="route_details" placeholder="Route Details"  required>
                                         <option>HYDERABAD-MUMBAI</option>
                                         <option>TIRUPATI-BANGLORE</option>
                                         <option>CHENNAI-MYSORE</option>
@@ -101,17 +104,17 @@
                                 </div>
                                 <div class="input-field">
                                     <label>Goods Type</label>
-                                    <input type="text" name="goods_type" placeholder="Goods Type" required>
+                                    <input type="text" id="goods_type" placeholder="Goods Type" required>
                                 </div>
 
                                 <div class="input-field">
                                     <label>Device</label>
-                                    <input type="text" name="device" placeholder="Device" required>
+                                    <input type="text" id="device" placeholder="Device" required>
                                 </div>
 
                                 <div class="input-field">
                                     <label>Expected Delivery Date</label>
-                                    <input type="date" name="expected_delivery"  placeholder="Expected Delivery Date" required>
+                                    <input type="date" id="expected_delivery"  placeholder="Expected Delivery Date" required>
                                 </div>
                             </div>
                         </div>
@@ -119,55 +122,47 @@
                             <div class="fields">
                                 <div class="input-field">
                                     <label>PO Number</label>
-                                    <input type="number" name="po_number" placeholder="PO Number" required>
+                                    <input type="number" id="po_number" placeholder="PO Number" required>
                                 </div>
 
                                 <div class="input-field">
                                     <label>Delivery Number</label>
-                                    <input type="number" name="delivery_number" placeholder="Delivery Number" required>
+                                    <input type="number" id="delivery_number" placeholder="Delivery Number" required>
                                 </div>
 
                                 <div class="input-field">
                                     <label>NDC Number</label>
-                                    <input type="number" name="ndc_number" placeholder="NDC Number" required>
+                                    <input type="number" id="ndc_number" placeholder="NDC Number" required>
                                 </div>
 
                                 <div class="input-field">
                                     <label>Batch Id</label>
-                                    <input type="number" name="batch_id" placeholder="Batch Id" required>
+                                    <input type="number" id="batch_id" placeholder="Batch Id" required>
                                 </div>
 
                                 <div class="input-field">
                                     <label>Serial Number Of Goods</label>
-                                    <input type="number" name="serial_number" placeholder="Serial Number Of Goods" required>
+                                    <input type="number" id="serial_number" placeholder="Serial Number Of Goods" required>
                                 </div>
 
                                 <div class="input-field">
                                     <label>Shipment Description</label>
-                                    <input type="text" name="shipment_description" placeholder="Shipment Description" required>
+                                    <input type="text" id="shipment_description" placeholder="Shipment Description" required>
                                 </div>
                                 
                             </div>
-                            <button class="nextBtn" >
+                            <button class="nextBtn" id="submit">
                                 <span class="btnText">Submit</span>
                                 <i class="uil uil-navigator"></i>
                             </button>
                            <br>
-                            <!-- <button class="nextBtn" type="clear">
-                                <span class="btnText">Clear</span>
-                                <i class="uil uil-navigator"></i>
-                            </button> -->
+                           <button type="clear">clear</button>
                         </div>
                     </div>
                 
             </div>
         </div>
     </div>
-
-    <script src="/project/Javascript/dashboard.js"></script>
-    <script src="/project/Javascript/myshipment.js"></script>
-   
-    </script>
 </form>
 </body>
 

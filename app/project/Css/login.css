@@ -1,13 +1,25 @@
-body { 
-	display: flex; 
-	align-items: center; 
+/* body { 
+	display: center; 
 	justify-content: center; 
+	align-items: center; 
 	font-family: sans-serif; 
 	line-height: 1.5; 
 	min-height: 100vh; 
 	background-image:url("/project/Images/login2.jpg");
 	flex-direction: column; 
 	margin: 0; 
+}  */
+
+body { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-family: sans-serif; 
+    line-height: 1.5; 
+    min-height: 100vh; 
+    background-image:url("/project/Images/login2.jpg");
+    flex-direction: column; 
+    margin: 0; 
 } 
 
 .main { 
@@ -63,3 +75,12 @@ button {
 	justify-content: center; 
 	align-items: center; 
 }
+
+
+
+
+
+
+
+
+

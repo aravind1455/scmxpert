@@ -1,41 +1,41 @@
 function validateForm() {
-    // Get form inputs
-    var username = document.getElementById("username").value;
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    var confirm = document.getElementById("confirm").value;
+  // Get form inputs
+  var username = document.getElementById("username").value;
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+  var confirm = document.getElementById("confirm").value;
 
-    // Regular expression for email validation
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // Regular expression for email validation
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Validation
-    if (username === "") {
-      document.getElementById("usernameError").innerHTML = "Please enter a username";
-      return false;
-    }
-    document.getElementById("usernameError").innerHTML = "";
-
-    if (!emailRegex.test(email)) {
-      document.getElementById("emailError").innerHTML = "Please enter a valid email";
-      return false;
-    }
-    document.getElementById("emailError").innerHTML = "";
-
-    if (password === "") {
-      document.getElementById("passwordError").innerHTML = "Please enter a password";
-      return false;
-    }
-    document.getElementById("passwordError").innerHTML = "";
-
-    if (confirm !== password) {
-      document.getElementById("confirmError").innerHTML = "Passwords do not match";
-      return false;
-    }
-    document.getElementById("confirmError").innerHTML = "";
-
-    // If all validations pass, the form will submit
-    return true;
+  // Validation
+  if (username === "") {
+    document.getElementById("usernameError").innerHTML = "Please enter a username";
+    return false;
   }
+  document.getElementById("usernameError").innerHTML = "";
+
+  if (!emailRegex.test(email)) {
+    document.getElementById("emailError").innerHTML = "Please enter a valid email";
+    return false;
+  }
+  document.getElementById("emailError").innerHTML = "";
+
+  if (password === "") {
+    document.getElementById("passwordError").innerHTML = "Please enter a password";
+    return false;
+  }
+  document.getElementById("passwordError").innerHTML = "";
+
+  if (confirm !== password) {
+    document.getElementById("confirmError").innerHTML = "Passwords do not match";
+    return false;
+  }
+  document.getElementById("confirmError").innerHTML = "";
+
+  // If all validations pass, the form will submit
+  return true;
+}
 
 
 //--------------------------new valid

@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="/project/Css/dashboard.css">
 	<link rel="stylesheet" href="/project/Css/mainbox.css">
     <link rel="stylesheet" href="/project/Css/myaccount.css">
+	<script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -22,9 +23,9 @@
 				class="icn menuicn" id="menuicn" alt="menu-icon">
 				<div class="logo">EXAFLUENCE</div>
 		</div>
-		<div class="dp">
+		<a href="/myaccount"><div class="dp">
 			<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
-				class="dpicn" alt="dp">
+				class="dpicn" alt="dp"></a>
 		</div>
 	</header>
 	<div class="main-container">
@@ -43,7 +44,7 @@
 					<div class="nav-option option">
 						<img src="/project/Images/user.png"
 							class="nav-img" alt="account">
-						<a href="/myaccount"><h3> Myaccount</h3></a>
+						<a href="/myaccount"><h3>My Account</h3></a>
 					</div>
 					<div class="option2 nav-option">
 						<img src="/project/Images/Cloud-Database.jpg"
@@ -63,22 +64,23 @@
 							<a href="/devicedata"><h3> DEVICE DATA</h3></a>
 					</div>
 					<div class="nav-option option4">
-						<img src="/project/Images/logout.jpg"
-							class="nav-img" alt="institution">
-							<a href="/login"><h3>LOG-OUT</h3></a>
-					</div>
+						<img src="/project/IMAGES/EXF.jpg" class="dp" alt="dashboard">
+						<button onclick="logout()" id="logout"><h3>LOG-OUT</h3></button>
+				</div>
 				</div>
 			</nav>
 		</div>
 		<div class="main">
             <div class="container">
                 <div class="cover-photo">
-                  <img src="/project/Images/user.png" class="profile">
+                  <img id="profileImage" src="/project/Images/user.png" class="profile">
                 </div>
-                <div class="profile-name">SCM-XPERT</div>
-                <p class="about">Email:<br>Role:</p>
-                <button class="msg-btn">Message</button>
-                <button class="follow-btn" id="loginButton">LOG-OUT</button>
+                <div class="profile-name" id="username"></div>
+                <p class="about" id="email" style="color:red"></p>
+				<p class="about" id="role" style="color:yellow"></p>
+                <!-- <button class="msg-btn">UPLOAD</button> --><br>
+				<button class="msg-btn" onclick="handleProfilePhotoUpload()">UPLOAD</button>
+                <button class="follow-btn" onclick="logout()" id="logout">LOG-OUT</button>
                 <div>
                   <i class="fab fa-facebook-f"></i>
                   <i class="fab fa-instagram"></i>
@@ -90,19 +92,10 @@
 	</div>
 	</div>
 	</div>
-	<script>
-
-
-		var access = document.getElementById("value");
-		var access1 = access.textContent;
-		// Store the token in localStorage
-		localStorage.setItem('authToken', access1);
-		// Optionally, retrieve and log the stored token
-	  //   const storedToken = localStorage.getItem('authToken');
-	  //   console.log('Token stored in localStorage:', storedToken);
-	  
-	  </script>
+	
 	<script src="/project/Javascript/dashboard.js"></script>
+	<script src="/project/Javascript/log.js"></script>
+	<script src="/project/Javascript/myaccount.js"></script>
 </body>
 
 </html>

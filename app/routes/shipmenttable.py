@@ -1,32 +1,58 @@
 # from fastapi import APIRouter,Request
 # from fastapi.templating import Jinja2Templates
 # from fastapi.staticfiles import StaticFiles
-from fastapi import APIRouter,Request,Depends,HTTPException
+
+
+
+
+# @route.get("/shipmenttable")
+# def sign(request: Request):
+#     data = shipment.find({})
+#     return html.TemplateResponse("shipmenttable.html", {"request": request,"data":data})
+
+
+from fastapi import APIRouter, Request, Depends, HTTPException, status,Header
+from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from routes.login import get_current_user
+from routes.login import *
 from database.database import *
+from fastapi.security import OAuth2PasswordBearer
+import pymongo
 
 route=APIRouter()
 html = Jinja2Templates(directory = "Templates")
 route.mount("/project", StaticFiles(directory="project"), name = "project")
 
 
-# @route.get("/shipmenttable")
-# def sign(request: Request):
-#     return html.TemplateResponse("shipmenttable.html", {"request": request})
+# Assuming you have an oauth2_scheme defined like this:
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+ 
+def get_current_user(token: str = Depends(oauth2_scheme)):
+    payload = decode_token(token)
+    print(token)
+    if payload and "sub" in payload and "email" in payload:
+        user_data = signup.find_one({"email": payload["email"]})
+        print(user_data)
+        if user_data :
+            return user_data
 
-# @route.get("/shipmenttable")
-# def sign(request: Request):
-#     # try:
-#     #     if current_user is None:
-#             # raise HTTPException(status_code=401, detail="Not authenticated")
-#         return html.TemplateResponse("shipmenttable.html", {"request": request})
-#     # except Exception as e:
-#     #     raise HTTPException(
-#     #         status_code=500, detail=f"Internal Server Error: {str(e)}")
 @route.get("/shipmenttable")
-def sign(request: Request):
-    data = test.find({})
-    print(data)
-    return html.TemplateResponse("shipmenttable.html", {"request": request,"data":data})
+def shipment_html(request: Request):
+    return html.TemplateResponse("shipmenttable.html", {"request": request})
+
+@route.get("/shipment")
+def shipment1(request: Request, token: str = Depends(get_current_user)):
+    print(token)
+    # a=decode_token(token)
+    # print(a)
+    if token:
+        # print("token in shipment", a)
+        ship_data = list(shipment.find({"email" : token["email"]},{"_id":0}))
+        print(ship_data)
+        return JSONResponse(content=ship_data, status_code=200)
+        # return JSONResponse(content={"message": "Token is None"}, status_code=401)
+
+
+
+

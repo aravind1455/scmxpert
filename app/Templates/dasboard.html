@@ -21,9 +21,9 @@
 				class="icn menuicn" id="menuicn" alt="menu-icon">
 				<div class="logo">EXAFLUENCE</div>
 		</div>
-		<div class="dp">
+		<a href="/myaccount"><div class="dp">
 			<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
-				class="dpicn" alt="dp">
+				class="dpicn" alt="dp"></a>
 		</div>
 	</header>
 	<div class="main-container">
@@ -40,28 +40,26 @@
 					</div>
 					<div class="nav-option option">
 						<img src="/project/Images/user.png" class="dp" alt="dashboard">
-						<a href="/myaccount"><h3> Myaccount</h3></a>
+						<a href="/myaccount"><h3> My Account</h3></a>
 					</div>
 
-
 					<div class="option2 nav-option">
-						<img src="/project/IMAGES/EXF.jpg" class="dp" alt="dashboard">
+						<img src="/project/Images/Cloud-Database.jpg" class="dp" alt="dashboard">
 						<a href="/shipmenttable"><h3>MY SHIPMENT</h3></a>
 					</div>
 
 					<div class="nav-option option3">
-						<img src="/project/IMAGES/EXF.jpg" class="dp" alt="dashboard">
-							<a href="/myshipments"><h3>NEW SHIPMENT</h3></a>
+						<img src="/project/Images/download (1).jpg" class="dp" alt="dashboard">
+							<a href="/myshipments"><h3>NEWSHIPMENT</h3></a>
 					</div>
 
 					<div class="nav-option option4">
-						<img src="/project/IMAGES/EXF.jpg" class="dp" alt="dashboard">
+						<img src="/project/Images/device data.webp" class="dp" alt="dashboard">
 							<a href="/devicedata"><h3> DEVICE DATA</h3></a>
 					</div>
 					<div class="nav-option option4">
-						<img src="/project/IMAGES/EXF.jpg" class="dp" alt="dashboard">
-						<a href="/login"><h3>LOG-OUT</h3></a>
-					</div>
+						<img src="/project/Images/logout.jpg" class="dp" alt="dashboard">
+						<button onclick="logout()" id="logout"><h3>LOG-OUT</h3></button>
 				</div>
 			</nav>
 		</div>
@@ -69,13 +67,15 @@
 			<div class="container">
 				<div class="split left">
 					<h1>Create Shipment</h1>
-					<a href="#" class="button">NEW SHIPMENT</a>
+					<a href="/myshipments" class="button">NEW SHIPMENT</a>
 				</div>
 				<div class="split right">
 					<h1>Get Database</h1>
-					<a href="#" class="button">GET DATA</a>
+					<a href="/shipmenttable" class="button">GET DATA</a>
 					<script src="/project/Javascript/mainbox.js"></script>
-					<p id="value" style="display: none;">{{token}}</p>
+					<script src="/project/Javascript/log.js"></script>
+					
+					<!-- <p id="value" style="display: none;">{{token}}</p> -->
 				</div>
 			</div>
 		</div>
@@ -84,17 +84,13 @@
 	</div>
 	<script>
 
-		if (localStorage.getItem("authToken") == null ){
-			window.location.href = "/login";
-		}
-		
-		var access = document.getElementById("value");
-		var access1 = access.textContent;
-		// Store the token in localStorage
-		localStorage.setItem('authToken', access1);
-		// Optionally, retrieve and log the stored token
-	  //   const storedToken = localStorage.getItem('authToken');
-	  //   console.log('Token stored in localStorage:', storedToken);
+	// 	var access = document.getElementById("value");
+	// 	var access1 = access.textContent;
+	// 	// Store the token in localStorage
+	// 	localStorage.setItem('authToken', access1);
+	// 	// Optionally, retrieve and log the stored token
+	//   //   const storedToken = localStorage.getItem('authToken');
+	//   //   console.log('Token stored in localStorage:', storedToken);
 	  
 	  </script>
 	<script src="/project/Javascript/dashboard.js"></script>
