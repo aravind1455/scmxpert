@@ -127,7 +127,8 @@ body{
 	height: 25vh;
   }
 
-  .error {
+  #error {
 	color: red;
+	text-align: center;
   }
   

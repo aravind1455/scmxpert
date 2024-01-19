@@ -50,44 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     document.querySelector('.nextBtn').addEventListener('click', function (event) {
-//         event.preventDefault(); // Prevents default form submission behavior
-
-//         var inputs = document.querySelectorAll('input[type="text"], input[type="number"], select, input[type="date"]');
-//         var isValid = true;
-
-//         inputs.forEach(function (input) {
-//             if (input.value.trim() === '') {
-//                 isValid = false;
-//                 input.classList.add('error'); // Add error class for styling
-//             } else {
-//                 input.classList.remove('error'); // Remove error class if input is filled
-//             }
-//         });
-
-//         // Additional check for Shipment Number length
-//         var shipmentNumberInput = document.getElementById('shipment_number');
-//         if (shipmentNumberInput.value.trim().length !== 7) {
-//             isValid = false;
-//             shipmentNumberInput.classList.add('error');
-//         } else {
-//             shipmentNumberInput.classList.remove('error');
-//         }
-
-//         if (isValid) {
-//             // All fields are filled and Shipment Number is of length 7
-//             // You can proceed with form submission or other actions
-//             // For example, you can submit the form by uncommenting the line below:
-//             // document.querySelector('form').submit();
-//             alert('Form submitted successfully!');
-
-//             // Clear all input fields
-//         } else {
-//             alert('Please fill in all fields and ensure Shipment Number has a length of 7.');
-//         }
-//     });
-// });
 
 
 
@@ -119,12 +81,16 @@ document.addEventListener("DOMContentLoaded", function() {
           })
               .then(response => {
                   if (response.status === 200) {
+                    
                       return response.json();
                   }
                   else {
                     $("#error-message").text("Please Enter the emplty fields");
                     $("#error-message").css("visibility", "visible");
                 }
+              }).then(jsonresponse => {
+                console.log(jsonresponse.error_message);
+                $("#error").text(jsonresponse.error_message);
               })
               .catch(error => {
                 $("#error-message").text(error.message);

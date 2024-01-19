@@ -154,3 +154,13 @@ form .buttons button, .backBtn{
         width: 100%;
     }  
 }
+
+#star{
+    color:red;
+}
+
+#error{
+    color:red;
+    margin-left: 210px;
+
+}

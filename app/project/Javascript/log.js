@@ -48,6 +48,10 @@ document.getElementById('submit').addEventListener('click', function(event) {
 
 });
 
+
+
+
+
 // logout
 function logout() {
     localStorage.removeItem("access_token");

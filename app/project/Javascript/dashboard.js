@@ -1,3 +1,12 @@
+$(document).ready(function(){
+    if (sessionStorage.getItem("role")==="admin"){
+        $("#update").css("display","flex")
+    }
+    console.log("working");
+    $("#username").html(`Welcome to SCM-Xpert, <span style="color: red;">${sessionStorage.getItem("username")}</span>`);
+    
+  });
+
 
 // Check if the access_token is not present in the localStorage
 if (localStorage.getItem("access_token") === null) {
@@ -16,11 +25,6 @@ menuicn.addEventListener("click", () => {
     nav.classList.toggle("navclose");
 });
 
-// Add an event listener to the element with the id "loginButton" for click events
-document.getElementById("loginButton").addEventListener("click", function() {
-    // Redirect to the login page when the "loginButton" is clicked
-    window.location.href = "login";
-});
 
 
 

@@ -14,6 +14,8 @@ from routes.signup import route as sign
 from routes.myaccount import route as account
 from routes.starting import route as start
 from routes.email import route as email
+from routes.adminpage import route as admin
+from routes.updaterole import route as role
 
 # Create a FastAPI instance
 app = FastAPI()
@@ -49,4 +51,5 @@ app.include_router(sign)
 app.include_router(account)
 app.include_router(start)
 app.include_router(email)
-
+app.include_router(admin)
+app.include_router(role)

@@ -30,10 +30,10 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
  
 def get_current_user(token: str = Depends(oauth2_scheme)):
     payload = decode_token(token)
-    print(token)
+    # print(token)
     if payload and "sub" in payload and "email" in payload:
         user_data = signup.find_one({"email": payload["email"]})
-        print(user_data)
+        # print(user_data)
         if user_data :
             return user_data
 
@@ -43,13 +43,12 @@ def shipment_html(request: Request):
 
 @route.get("/shipment")
 def shipment1(request: Request, token: str = Depends(get_current_user)):
-    print(token)
+    # print(token)
     # a=decode_token(token)
     # print(a)
     if token:
         # print("token in shipment", a)
         ship_data = list(shipment.find({"email" : token["email"]},{"_id":0}))
-        print(ship_data)
         return JSONResponse(content=ship_data, status_code=200)
         # return JSONResponse(content={"message": "Token is None"}, status_code=401)
 

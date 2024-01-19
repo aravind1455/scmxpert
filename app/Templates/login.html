@@ -1,38 +1,4 @@
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCM-XPERT Login</title>
-    <link rel="stylesheet" href="/project/Css/login.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
-    <script src="../project/Javascript/log.js"></script>
-</head>
-<body>
-    <div class="main">
-        <h1>SCM-XPERT</h1>
-        <h3>Enter your login credentials</h3>
-        <form id="loginForm">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter your Username">
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your Password">
-
-            <div class="wrap">
-                <button  type="submit" id="submit">Submit</button>
-            </div>
-        </form>
-        <p><a href="/changepassword">Forgot Password</a></p>
-        <p>Not registered? <a href="/signup">Create an account</a></p>
-    </div>
-    
-    
-</body>
-
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,53 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     <script src="../project/Javascript/log.js"></script>
+    <link rel="stylesheet" href="/project/Css/dashboard.css">
+    <link rel="stylesheet" href="/project/Css/login.css">
+    
     <title>Login Form with Captcha</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            background-image:url("/project/Images/login2.jpg");
-            align-items: center;
-            height: 100vh;
-        }
 
-        .login-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .captcha-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        #captcha {
-            font-size: 18px;
-            margin-right: 10px;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #4caf50;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
 
@@ -104,7 +28,9 @@
         <input type="text" id="userCaptcha" placeholder="Enter Captcha" required>
 
         <button type="button" type="submit" id="submit" onclick="validateForm()">Login</button>
-        <a href=/signup>forget</a>
+        <a href="/signup"><button type="button" type="submit" id="submit">Signup</button><br><br></a>
+        <a href=/changepassword>forgot password??</a>
+
     </form>
 </div>
 
@@ -129,9 +55,11 @@
 
         if (userCaptcha === generatedCaptcha) {
             alert('Captcha is valid. Login successful!');
+            window.location.href = "/dashboard";
             // Add your login logic here
         } else {
             alert('Captcha is invalid. Please try again.');
+            window.location.href = "/login";
         }
     }
 

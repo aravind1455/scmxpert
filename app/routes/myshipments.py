@@ -49,45 +49,34 @@ def sign(request: Request):
     
 @route.post("/myshipments")
 def sign1(request: Request, shipment1: ShipmentData , token : str = Depends(oauth2_scheme)): 
-    print(token[7:len(token)])
-    a=decode_token(token[7:len(token)])
-    print(a)
-
-    base={
-         "email":a["email"],
-        'shipment_number':shipment1.shipment_number,
-        "container_number":shipment1.container_number,
-        "route_details":shipment1.route_details,
-        "goods_type":shipment1.goods_type, 
-        "device":shipment1.device,
-        "expected_delivery":shipment1.expected_delivery,
-        "po_number":shipment1.po_number,
-        "delivery_number":shipment1.delivery_number,
-        "ndc_number":shipment1.ndc_number,
-        "batch_id":shipment1.batch_id,
-        "serial_number":shipment1.serial_number,
-        "shipment_description":shipment1.shipment_description
-    }
-    shipment.insert_one(base)
-    return {"message": "Shipment Created Successfully"}
-    # try:
-    #     # Check if the shipment is already registered
-    #     existing_shipment = shipment.find_one({"shipment_number": shipment1.shipment_number})
-
-    #     if existing_shipment:
-    #         raise HTTPException(status_code=400, detail="Shipment already exists")
-    # # print(token, request, shipment1)
-        
-    # except HTTPException as http_error:
-    #     if http_error.detail == "Shipment already exists":
-    #         raise HTTPException(status_code=400, detail=http_error.detail)
-    #     raise http_error  
+        existing_data = shipment.find_one({"shipment_number":shipment1.shipment_number},{"_id": 0})
+        try:
+            if existing_data:
+                raise HTTPException(status_code=400, detail="shipnumber already used")
+            
+            a=decode_token(token[7:len(token)])
+    # print(a)
+            base={
+                "email":a["email"],
+                'shipment_number':shipment1.shipment_number,
+                "container_number":shipment1.container_number,
+                "route_details":shipment1.route_details,
+                "goods_type":shipment1.goods_type, 
+                "device":shipment1.device,
+                "expected_delivery":shipment1.expected_delivery,
+                "po_number":shipment1.po_number,
+                "delivery_number":shipment1.delivery_number,
+                "ndc_number":shipment1.ndc_number,
+                "batch_id":shipment1.batch_id,
+                "serial_number":shipment1.serial_number,
+                "shipment_description":shipment1.shipment_description
+            }
+            shipment.insert_one(base)
+            return JSONResponse(content={"error_message": "Shipment Created Successfully"})
     
-    # except Exception as e:
-    #     raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
+        except HTTPException as http_error:
+            return JSONResponse(content={"error_message": http_error.detail})
 
 
-
-   
 
 

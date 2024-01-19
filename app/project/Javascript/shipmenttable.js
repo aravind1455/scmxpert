@@ -1,7 +1,6 @@
 if (localStorage.getItem("access_token") === null) {
     window.location.href= "/login";
 }
-alert("hello");
 
 $(document).ready(function(){
     const token = localStorage.getItem("access_token");
@@ -41,7 +40,7 @@ $(document).ready(function(){
           $("#table_data").html(shipment_data);
           console.log(data);
         }).catch(error => {
-          alert(error.message);
+          // alert(error.message);
           console.log("data hasn't pushed to html");
         })
       });

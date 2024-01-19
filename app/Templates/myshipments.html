@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="/project/Css/myshipments.css">
     <script src="/project/Javascript/dashboard.js"></script>
     <script src="/project/Javascript/myshipment.js"></script>
-    
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    
 
 </head>
 
@@ -23,37 +23,41 @@
     <header>
 
         <div class="logosec">
-            <div class="logo">EXAFLUENCE</div>
-            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
-                class="icn menuicn" id="menuicn" alt="menu-icon">
-        </div>
-        <a href="/myaccount"><div class="dp">
+			
+			<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
+				class="icn menuicn" id="menuicn" alt="menu-icon">
+				<div class="logo">EXAFLUENCE</div>
+		</div>
+		<a href="/myaccount"><div class="dp">
 			<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
 				class="dpicn" alt="dp"></a>
 		</div>
-        </div>
-
     </header>
     <div class="main-container">
         <div class="navcontainer">
             <nav class="nav">
                 <div class="nav-upper-options">
 					<div class="nav-option option1"> 
-						<img src="/project/IMAGES/EXF.jpg" class="dp" alt="dashboard"> 
+						<img src="/project/Images/exf.jpg" class="dp" alt="dashboard"> 
                         <h3>EXAFLUENCE</h3> 
 					</div> 
 					<div class="nav-option option">
 						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
 							class="nav-img" alt="dashboard">
-						<a href="/dashboard"><h3> Dashboard</h3></a>
+						<a href="/dashboard"><h3> DASHBOARD</h3></a>
 					</div>
-					<div class="nav-option option">
+					<!-- <div class="nav-option option">
 						<img src="/project/Images/user.png"
 							class="nav-img" alt="account">
 						<a href="/myaccount"><h3>My Account</h3></a>
-					</div>
+					</div> -->
+                    <!-- <div class="option2 nav-option" id="update" style="display: none;">
+						<img src="/project/Images/updaterole.jpg"
+							class="nav-img" alt="articles">
+						<a href="/changerole"><h3>UPDATE ROLE</h3></a>
+					</div> -->
 					<div class="option2 nav-option">
-						<img src="/project/Images/Cloud-Database.jpg"
+						<img src="/project/Images/database.jpg"
 							class="nav-img" alt="articles">
 						<a href="/shipmenttable"><h3>MY SHIPMENT</h3></a>
 					</div>
@@ -65,12 +69,12 @@
 					</div>
 
 					<div class="nav-option option4">
-						<img src="/project/Images/device data.webp"
+						<img src="/project/Images/devicedata.jpg"
 							class="nav-img" alt="institution">
 							<a href="/devicedata"><h3> DEVICE DATA</h3></a>
 					</div>
 					<div class="nav-option option4">
-						<img src="/project/IMAGES/EXF.jpg" class="dp" alt="dashboard">
+						<img src="/project/Images/logout2.jpg" class="dp" alt="dashboard">
 						<button onclick="logout()" id="logout"><h3>LOG-OUT</h3></button>
 				</div>
 				</div>
@@ -82,20 +86,20 @@
                     <div class="form first">
                         <div class="details personal">
                             <span class="title">NEW SHIPMENTS</span>
-
+                            <span id="error"></span>
                             <div class="fields">
                                 <div class="input-field">
-                                    <label>Shipment Number</label>
+                                    <label>Shipment Number <i id="star">*</i></label>
                                     <input type="text"   id="shipment_number" placeholder="Shipment Number" required>
                                 </div>
 
                                 <div class="input-field">
-                                    <label>Container Number</label>
+                                    <label>Container Number <i id="star">*</i></label>
                                     <input type="number" id="container_number" placeholder="Container Number" required>
                                 </div>
 
                                 <div class="input-field">
-                                    <label>Route Details</label>
+                                    <label>Route Details <i id="star">*</i></label>
                                     <select type="text" id="route_details" placeholder="Route Details"  required>
                                         <option>HYDERABAD-MUMBAI</option>
                                         <option>TIRUPATI-BANGLORE</option>
@@ -103,17 +107,17 @@
                                     </select>
                                 </div>
                                 <div class="input-field">
-                                    <label>Goods Type</label>
+                                    <label>Goods Type <i id="star">*</i></label>
                                     <input type="text" id="goods_type" placeholder="Goods Type" required>
                                 </div>
 
                                 <div class="input-field">
-                                    <label>Device</label>
+                                    <label>Device <i id="star">*</i></label>
                                     <input type="text" id="device" placeholder="Device" required>
                                 </div>
 
                                 <div class="input-field">
-                                    <label>Expected Delivery Date</label>
+                                    <label>Expected Delivery Date <i id="star">*</i></label>
                                     <input type="date" id="expected_delivery"  placeholder="Expected Delivery Date" required>
                                 </div>
                             </div>
@@ -121,32 +125,32 @@
                         <div class="details ID">
                             <div class="fields">
                                 <div class="input-field">
-                                    <label>PO Number</label>
+                                    <label>PO Number <i id="star">*</i></label>
                                     <input type="number" id="po_number" placeholder="PO Number" required>
                                 </div>
 
                                 <div class="input-field">
-                                    <label>Delivery Number</label>
+                                    <label>Delivery Number <i id="star">*</i></label>
                                     <input type="number" id="delivery_number" placeholder="Delivery Number" required>
                                 </div>
 
                                 <div class="input-field">
-                                    <label>NDC Number</label>
+                                    <label>NDC Number <i id="star">*</i></label>
                                     <input type="number" id="ndc_number" placeholder="NDC Number" required>
                                 </div>
 
                                 <div class="input-field">
-                                    <label>Batch Id</label>
+                                    <label>Batch Id <i id="star">*</i></label>
                                     <input type="number" id="batch_id" placeholder="Batch Id" required>
                                 </div>
 
                                 <div class="input-field">
-                                    <label>Serial Number Of Goods</label>
+                                    <label>Serial Number Of Goods <i id="star">*</i></label>
                                     <input type="number" id="serial_number" placeholder="Serial Number Of Goods" required>
                                 </div>
 
                                 <div class="input-field">
-                                    <label>Shipment Description</label>
+                                    <label>Shipment Description </label>
                                     <input type="text" id="shipment_description" placeholder="Shipment Description" required>
                                 </div>
                                 

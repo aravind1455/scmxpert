@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +11,7 @@
   <div class="center">
     <h1>Register</h1>
     <form id="signupForm" method="post" action="/signup">
+      <span id="error">{{error_message}}</span>
       <div class="txt_field">
         <input type="text" name="username" id="username" required>
         <span></span>
@@ -43,6 +43,6 @@
     </form>
   </div>
 </div>
-<script src="/app/Javascript/signup.js"></script>
+<script src="/project/Javascript/signup.js"></script>
 </body>
 </html>

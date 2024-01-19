@@ -6,24 +6,16 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, 
 				initial-scale=1.0">
-	<title>DASHBOARD</title>
+	<title>Device Data</title>
 	<link rel="stylesheet" href="/project/Css/dashboard.css">
-	<link rel="stylesheet" href="/project/Css/mainbox.css">
 	<link rel="stylesheet" href="/project/Css/devicedata.css">
-	<style>
-		 .table1 select,
-    .table1 button {
-        font-size: 25px; /* Adjust the size as needed */
-    }
-	</style>
 
+	<script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
 </head>
 <body>
 	<!-- for header part -->
 	<header>
-
 		<div class="logosec">
-			
 			<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
 				class="icn menuicn" id="menuicn" alt="menu-icon">
 				<div class="logo">EXAFLUENCE</div>
@@ -38,22 +30,22 @@
 			<nav class="nav">
 				<div class="nav-upper-options">
 					<div class="nav-option option1"> 
-						<img src="/project/IMAGES/EXF.jpg" class="dp" alt="dashboard"> 
+						<img src="/project/Images/exf.jpg" class="dp" alt="dashboard"> 
                         <h3>EXAFLUENCE</h3> 
 					</div> 
 					<div class="nav-option option">
 						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
 							class="nav-img" alt="dashboard">
-						<a href="/dashboard"><h3> Dashboard</h3></a>
+						<a href="/dashboard"><h3> DASHBOARD</h3></a>
 					</div>
-                    <div class="nav-option option">
+                    <!-- <div class="nav-option option">
 						<img src="/project/Images/user.png"
 							class="nav-img" alt="account">
 						<a href="/myaccount"><h3>My Account</h3></a>
-					</div>
+					</div> -->
 
 					<div class="option2 nav-option">
-						<img src="/project/Images/Cloud-Database.jpg"
+						<img src="/project/Images/database.jpg"
 							class="nav-img" alt="articles">
 						<a href="/shipmenttable"><h3>MY SHIPMENT</h3></a>
 					</div>
@@ -65,63 +57,56 @@
 					</div>
 
 					<div class="nav-option option4">
-						<img src="/project/Images/device data.webp"
+						<img src="/project/Images/devicedata.jpg"
 							class="nav-img" alt="institution">
 							<a href="/devicedata"><h3> DEVICE DATA</h3></a>
 					</div>
 					<div class="nav-option option4">
-						<img src="/project/IMAGES/EXF.jpg" class="dp" alt="dashboard">
+						<img src="/project/Images/logout2.jpg" class="dp" alt="dashboard">
 						<button onclick="logout()" id="logout"><h3>LOG-OUT</h3></button>
 				</div>
 				</div>
 			</nav>
 		</div>
 		<div class="main">
+			<form>
 			<div>
-
-				<div style="color:red" class="table1"><select type="text" id="route_details" placeholder="Route Details"  required>
+				<div style="color:rgba(255, 72, 0, 0.911)" class="table1">
+					DEVICE ID
+					<select type="text" id="device_id" placeholder="device_id"  required>
 					<option>DEVICE ID</option>
-					<option></option>
-					<option></option>
+					<option value="1158">1158</option>
+					<option value="1153">1153</option>
+					<option value="1152">1152</option>
+					<option value="1156053077">1156053077</option>
 				</select>
-				<button class="nextBtn" id="submit">GET DATA
-				</button></div>
-				
-
-
+				<button class="nextBtn" id="submit" style="background-color:blanchedalmond">GET DATA</button></div>
 				<div class="table-container">
 					<div class="table-horizontal-container">
 						<table class="unfixed-table">
 
-							<tbody>
+							<thead>
 								<tr>
-									<th>Shipment Number</th>
-									<th>Conatiner Number</th>
-									<th>Route Details</th>
-									<th>Goods type</th>
-									<th>Device</th>
-									<th>Expected delivery date</th>
-									<th>PO Number</th>
-									<th>Delivery Number</th>
-									<th>NDC number</th>
-									<th>Batch Id</th>
-									<th>Serial number of goods</th>
+									<th>Device_Id</th>
+									<th>Battery_Level</th>
+									<th>First_Sensor_temperature</th>
+									<th>Route_From</th>
+									<th>Route_To</th>
 								</tr>
+							</thead>
+							<!-- <tbody id="tabledata1">
 								{% for i in data %}
 								<tr>
-									<td>{{i.Shipment_number}}</td>
-									<td>{{i.Container_number}}</td>
-									<td>{{i.Route_details}}</td>
-									<td>{{i.Goodstype}}</td>
-									<td>{{i.Device}}</td>
-									<td>{{i.Expected_Deliverydate}}</td>
-									<td>{{i.PO_number}}</td>
-									<td>{{i.Delivery_number}}</td>
-									<td>{{i.NDC_number}}</td>
-									<td>{{i.Batch_Id}}</td>
-									<td>{{i.serialgoods_number}}</td>
+									<td>{{ i.Device_ID }}</td>
+									<td>{{ i.Battery_Level }}</td>
+									<td>{{ i.First_Sensor_temperature }}</td>
+									<td>{{ i.Route_From }}</td>
+									<td>{{ i.Route_To }}</td>
 								</tr>
-								{% endfor %}
+								{% endfor %} -->
+							<!-- </tbody> -->
+							<tbody id="table_data1">
+
 							</tbody>
 						</table>
 					</div>
@@ -129,86 +114,11 @@
 				</object>
 				</article>
 			</div>
+		</form>
 		</div>
 	</div>
 	</div>
-		</div>
-	</div>
-	</div>
-	</div>
-	<script>
-
-
-		var access = document.getElementById("value");
-		var access1 = access.textContent;
-		// Store the token in localStorage
-		localStorage.setItem('authToken', access1);
-		// Optionally, retrieve and log the stored token
-	  //   const storedToken = localStorage.getItem('authToken');
-	  //   console.log('Token stored in localStorage:', storedToken);
-	  
-	  </script>
-	<script src="/project/Javascript/dashboard.js"></script>
-	<script src="/project/Javascript/log.js"></script>
+	<script src="/project/Javascript/devicedata.js"></script>
 </body>
 
 </html>
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link rel="stylesheet" href="/project/Css/devicedata.css">
-    <link rel="stylesheet" href="/project/Css/dashboard.css">
-
-    <title>Device Data</title>
-    
-</head>
-
-<body id="body-pd">
-
-    <div class="input-box">
-        <h1>Please Select a Device Id to See the Data Stream</h1>
-        <label id="selected-device" class="details">Device id*</label>
-        <select name="deviceid" id="deviceid" class="deviceid" required>
-            <option value="" disabled selected>Select Device id</option>
-            <option value="11560533076">1</option>
-            <option value="11560533077">12</option>
-            <div class="button-container">
-                <input type="submit" value="Get Device Data" class="get-data-button" method="#">
-            </div>
-        </select>
-    </div>
-
-    <div class="table-container">
-        <table class="table" id="data-table">
-            <thead>
-                <tr>
-                    <th>Device id</th>
-                    <th>Battery Level</th>
-                    <th>Sensor Temperature</th>
-                    <th>Route from</th>
-                    <th>Route To</th>
-                </tr>
-                <tr>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                </tr>
-            </thead>
-            <tbody id="table-body">
-
-            </tbody>
-        </table>
-    </div>
-
-
-
-
-</body>
-
-</html> -->

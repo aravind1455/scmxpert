@@ -19,7 +19,7 @@ body{
 .table-container {
  position: absolute;
  max-height: 600px;
- width: 1600px;
+ width: 1065px;
  overflow: scroll;
  margin:20px 0px 0px 550px;
 }
@@ -73,10 +73,15 @@ tr:nth-child(even) {
   .table1{
     background-color: aqua;
     height:60px;
-    width:1000px;
+    width:1050px;
     text-align:center;
     font-size:30px;
-    margin:300px 0px 0px 800px;
+    margin:300px 0px 0px 550px;
   }
+
+  .table1 select,
+    .table1 button {
+        font-size: 25px; /* Adjust the size as needed */
+    }
 
 

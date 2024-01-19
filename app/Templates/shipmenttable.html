@@ -10,6 +10,7 @@
 	
 	<script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="/project/Css/dashboard.css">
+	<link rel="stylesheet" href="/project/Css/mainbox.css">
 	<link rel="stylesheet" href="/project/Css/shipmenttable.css">
 	<script src="../project/Javascript/shipmenttable.js"></script>
 	
@@ -37,21 +38,26 @@
 			<nav class="nav">
 				<div class="nav-upper-options">
 					<div class="nav-option option1"> 
-						<img src="/project/IMAGES/EXF.jpg" class="dp" alt="dashboard"> 
+						<img src="/project/Images/exf.jpg" class="dp" alt="dashboard"> 
                         <h3>EXAFLUENCE</h3> 
 					</div> 
 					<div class="nav-option option">
 						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
 							class="nav-img" alt="dashboard">
-						<a href="/dashboard"><h3> Dashboard</h3></a>
+						<a href="/dashboard"><h3> DASHBOARD</h3></a>
 					</div>
-					<div class="nav-option option">
+					<!-- <div class="nav-option option">
 						<img src="/project/Images/user.png"
 							class="nav-img" alt="account">
 						<a href="/myaccount"><h3>My Account</h3></a>
-					</div>
+					</div> -->
+					<!-- <div class="option2 nav-option" id="update" style="display: none;">
+						<img src="/project/Images/updaterole.jpg"
+							class="nav-img" alt="articles">
+						<a href="/changerole"><h3>UPDATE ROLE</h3></a>
+					</div> -->
 					<div class="option2 nav-option">
-						<img src="/project/Images/Cloud-Database.jpg"
+						<img src="/project/Images/database.jpg"
 							class="nav-img" alt="articles">
 						<a href="/shipmenttable"><h3>MY SHIPMENT</h3></a>
 					</div>
@@ -63,12 +69,12 @@
 					</div>
 
 					<div class="nav-option option4">
-						<img src="/project/Images/device data.webp"
+						<img src="/project/Images/devicedata.jpg"
 							class="nav-img" alt="institution">
 							<a href="/devicedata"><h3> DEVICE DATA</h3></a>
 					</div>
 					<div class="nav-option option4">
-						<img src="/project/IMAGES/EXF.jpg" class="dp" alt="dashboard">
+						<img src="/project/Images/logout2.jpg" class="dp" alt="dashboard">
 						<button onclick="logout()" id="logout"><h3>LOG-OUT</h3></button>
 				</div>
 				</div>
@@ -95,6 +101,7 @@
 									<th>NDC number</th>
 									<th>Batch Id</th>
 									<th>Serial number of goods</th>
+									<th>Shipment Description</th>
 								</tr>
 							</tbody>
 							<tbody id="table_data">
