@@ -4,7 +4,7 @@ body{
 	font-family: Roboto;
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-image:url("/project/Images/login2.jpg");
+	background-image:url("/project/Images/login.webp");
 	height: 100vh;
 	overflow: hidden;
   }
@@ -130,5 +130,11 @@ body{
   #error {
 	color: red;
 	text-align: center;
+	margin-left:250px;
   }
-  
+#success {
+color: #28a745; /* Green color */
+text-align: center;
+margin-left:35px;
+ /* Add some top margin for spacing */
+}

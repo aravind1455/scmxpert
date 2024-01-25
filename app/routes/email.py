@@ -1,31 +1,49 @@
-from fastapi import APIRouter, HTTPException,Request,Depends,Form
+
+from fastapi import APIRouter, Form, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from database.database import *  
+from database.database import signup
+from passlib.context import CryptContext
+
 # Create an instance of APIRouter to define routes for this specific API section
-route=APIRouter()
+route = APIRouter()
+
 # Create an instance of Jinja2Templates to handle rendering HTML templates
-html = Jinja2Templates(directory = "Templates")
+html = Jinja2Templates(directory="Templates")
+
 # Mount the "project" directory containing static files (e.g., CSS, JS) under the "/project" route
 # This allows FastAPI to serve static files directly from the specified directory
-route.mount("/project", StaticFiles(directory="project"), name = "project")
+route.mount("/project", StaticFiles(directory="project"), name="project")
 
-# Route to display the email changing
+pwd_cxt = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+# Route to display the email changing form
 @route.get("/changepassword")
 def email(request: Request):
-    return html.TemplateResponse("emailget.html", {"request": request})
+    return html.TemplateResponse("PasswordChange.html", {"request": request})
 
-# Route to display the email changing
+# Route to handle password change submission
 @route.post("/changepassword")
-def change(request: Request,email:str = Form(...),password : str = Form(),confirm:str = Form(...)):
+def change(request: Request, email: str = Form(...), password: str = Form(), confirm: str = Form(...)):
     result = signup.find_one({"email": email})
+
     if result:
         # Check if password and confirm_password match
         if password == confirm:
-            # Update password for the given email
-            signup.update_one({"email": email}, {"$set": {"password": password,"confirmpassword":confirm}})
-            return html.TemplateResponse("login.html", {"request": request,"message": "Password updated successfully"})
-    return html.TemplateResponse("emailget.html", {"request": request})
+            # Check if the new password is not the same as the current password
+            if password != result["password"]:
+                pw = pwd_cxt.hash(password)
+                # Update password for the given email
+                signup.update_one({"email": email}, {"$set": {"password": pw, "confirmpassword": confirm}})
+                # Redirect to login page with success message
+                return html.TemplateResponse("login.html", {"request": request, "message": "Password updated successfully"})
+            else:
+                # Password is already present in the database
+                return html.TemplateResponse("PasswordChange.html", {"request": request, "message": "Password already exists. Try a new password."})
+    
+    # Redirect to the emailget page with an error message
+    return html.TemplateResponse("PasswordChange.html", {"request": request, "message": "Invalid email or passwords do not match"})
+
 
 
 

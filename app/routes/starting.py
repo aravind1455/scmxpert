@@ -10,15 +10,5 @@ route.mount("/project", StaticFiles(directory="project"), name = "project")
 
 @route.get("/")
 def sign(request: Request):
-    return html.TemplateResponse("starting.html", {"request": request})
+    return html.TemplateResponse("StartingPage.html", {"request": request})
 
-@route.post("/")
-def sign(request: Request,username:str = Form(...),email:str = Form(...),password:str = Form(...),confirm:str = Form(...)):
-    signupdata={
-        "user":username,
-        "email":email,
-        "password":password,
-        "confirmpassword":confirm
-    }
-    signup.insert_one(signupdata)
-    return html.TemplateResponse("signup.html", {"request": request})

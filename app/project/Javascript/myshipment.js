@@ -1,104 +1,89 @@
 if (localStorage.getItem("access_token") === null) {
     window.location.href= "/login";
 }
-document.addEventListener("DOMContentLoaded", function () {
-    // Set the minimum date for the date input field to today's date
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-    var yyyy = today.getFullYear();
 
-    today = yyyy + '-' + mm + '-' + dd;
-    document.getElementById('expected_delivery').min = today;
+$(document).ready(function(){
+  const token = localStorage.getItem("access_token");
 
-    document.querySelector('.nextBtn').addEventListener('click', function (event) {
-        event.preventDefault(); // Prevents default form submission behavior
+  function redirectToLogin() {
+      console.log("Redirecting to login page");
+      window.location.href = "/login"; // Change "/login" to the actual login page URL
+  }
 
-        var inputs = document.querySelectorAll('input[type="text"], input[type="number"], select, input[type="date"]');
-        var isValid = true;
+  console.log("Token:", token);
 
-        inputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                isValid = false;
-                input.classList.add('error'); // Add error class for styling
-            } else {
-                input.classList.remove('error'); // Remove error class if input is filled
-            }
-        });
-
-        // Additional check for Shipment Number length
-        var shipmentNumberInput = document.getElementById('shipment_number');
-        if (shipmentNumberInput.value.trim().length !== 7) {
-            isValid = false;
-            shipmentNumberInput.classList.add('error');
-        } else {
-            shipmentNumberInput.classList.remove('error');
+  // Check if token exists and not expired
+  if (token) {
+      fetch(`/shipment`, {
+          method: "GET",
+          headers: {
+              "Authorization": `${localStorage.getItem("access_token")}`,
+              'Content-Type': 'application/json',
+          },
+      })
+      .then(response => {
+        console.log("Response Status:", response.status);
+    
+        // Check if the response status is 401 (Unauthorized)
+        if (response.status === 401) {
+            console.log("Redirecting to login due to 401 error");
+            redirectToLogin();
+            return Promise.reject("Unauthorized");
         }
-
-        if (isValid) {
-            // All fields are filled and Shipment Number is of length 7
-            // You can proceed with form submission or other actions
-            // For example, you can submit the form by uncommenting the line below:
-            // document.querySelector('form').submit();
-            alert('Form submitted successfully!');
-
-            // Clear all input fields
-            
-        } else {
-            alert('Please fill in all fields and ensure Shipment Number has a length of 7.');
+    
+        // Continue processing for other response statuses
+        if (response.status !== 200) {
+            throw new Error(`Status ${response.status}`);
         }
-    });
+    
+        return response.json();
+    })
+      .then(response => {
+          console.log("API Response:", response);
+          if (response.status_code === 400) {
+              console.log("Error:", response.detail);
+              $("#error").text(response.detail);
+          }
+
+          let shipment_data = "";
+          for (let shipment_no = 0; shipment_no < response.length; shipment_no++) {
+              const shipment = response[shipment_no];
+
+              shipment_data = shipment_data + "<tr><td>"
+                  + shipment.shipment_number + "</td><td>"
+                  + shipment.container_number + "</td><td>"
+                  + shipment.route_details + "</td><td>"
+                  + shipment.goods_type + "</td><td>"
+                  + shipment.device + "</td><td>"
+                  + shipment.expected_delivery + "</td><td>"
+                  + shipment.po_number + "</td><td>"
+                  + shipment.delivery_number + "</td><td>"
+                  + shipment.ndc_number + "</td><td>"
+                  + shipment.batch_id + "</td><td>"
+                  + shipment.serial_number + "</td><td>"
+                  + shipment.shipment_description + "</td></tr>";
+          }
+
+          console.log("Shipment Data:", shipment_data);
+          $("#table_data").html(shipment_data);
+      })
+      .catch(error => {
+          console.log("Error:", error.message);
+          // Check if the error is due to token expiration
+          if (error.status === 401) {
+              console.log("Redirecting to login due to 401 error");
+              redirectToLogin();
+          }
+      });
+  } else {
+      // Token is missing, redirect to login page
+      console.log("Token is missing, redirecting to login page");
+      redirectToLogin();
+  }
 });
 
 
 
-
-
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("submit").addEventListener("click", function(event) {
-      event.preventDefault();
-        console.log("Dom load", localStorage.getItem("access_token"));
-        fetch("/myshipments", {
-              method: "POST",
-              headers: {
-                  'Authorization': `Bearer ${localStorage.getItem("access_token")}`,
-                  'Content-Type': 'application/json',
-              },
-              body : JSON.stringify({
-                "shipment_number": $("#shipment_number").val(),
-                "container_number": $("#container_number").val(),
-                "route_details": $("#route_details").val(),
-                "goods_type": $("#goods_type").val(),
-                "device": $("#device").val(),
-                "expected_delivery":$("#expected_delivery").val(),
-                "po_number": $("#po_number").val(),
-                "delivery_number": $("#delivery_number").val(),
-                "ndc_number": $("#ndc_number").val(),
-                "batch_id": $("#batch_id").val(),
-                "serial_number": $("#serial_number").val(),
-                "shipment_description": $("#shipment_description").val(),
-              }),
-          })
-              .then(response => {
-                  if (response.status === 200) {
-                    
-                      return response.json();
-                  }
-                  else {
-                    $("#error-message").text("Please Enter the emplty fields");
-                    $("#error-message").css("visibility", "visible");
-                }
-              }).then(jsonresponse => {
-                console.log(jsonresponse.error_message);
-                $("#error").text(jsonresponse.error_message);
-              })
-              .catch(error => {
-                $("#error-message").text(error.message);
-                $("#error-message").css("visibility", "visible");
-            });
-            
-    });
-});
 
 
 function logout() {
@@ -107,5 +92,6 @@ function logout() {
     sessionStorage.removeItem("email");
     sessionStorage.removeItem("role");
     window.location.href= "/login";
-    // You can add more cleanup here if needed
-}
+        // You can add more cleanup here if needed
+    }
+    

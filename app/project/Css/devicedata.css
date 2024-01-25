@@ -6,21 +6,23 @@ table {border-collapse: collapse; font-family: helvetica}
 td, th {border: 1px solid;
  padding: 10px;
  min-width: 200px;
- background-color: antiquewhite;
+ background-color: #3f0097b7;
  box-sizing: border-box;
- text-align: left;
+ text-align: center;
 }
 body{
     display: absolute;
     height: 100vh;
-    background: url("/project/Images/Freight-Logistics.jpeg");
+    background: url("/project/Images/devicedata1.webp");
+    backdrop-filter: blur(3px);
+    color: white;
     background-size: cover;
 }
 .table-container {
  position: absolute;
  max-height: 600px;
  width: 1065px;
- overflow: scroll;
+ overflow-y: auto;
  margin:20px 0px 0px 550px;
 }
  
@@ -29,7 +31,9 @@ thead th {
  position: sticky;
  top: 0;
  z-index: 2;
- background: hsl(20, 50%, 70%);
+ background:  #3f0097b7;
+ color:ghostwhite;
+ height:60px;
 }
  
 thead th:first-child {
@@ -64,16 +68,17 @@ tr > :first-child {
  box-shadow: inset 0px 1px black;
 }
 tr:nth-child(even) {
-    background-color: rgba(150, 212, 212, 0.4);
+    background-color: #3f0097b7
   }
   
   th:nth-child(even),td:nth-child(even) {
-    background-color: rgba(150, 212, 212, 0.4);
+    background-color: #3f0097b7;
   }
   .table1{
-    background-color: aqua;
+    background-color: #3f0097b7;
     height:60px;
     width:1050px;
+    color: aqua;
     text-align:center;
     font-size:30px;
     margin:300px 0px 0px 550px;
@@ -84,4 +89,22 @@ tr:nth-child(even) {
         font-size: 25px; /* Adjust the size as needed */
     }
 
+#error{
+  color:rgb(245, 241, 241);
+  position: absolute;
+  margin-left: 970px;
+  margin-top:250px;
+  font-size:x-large;
+  font-weight: 600;
+
+}
+.nextBtn{
+  background-color:#3f0097b7;
+  border:2px solid white;
+  color: yellow;
+  margin-left: 50px;  
+}
+/* #device_id{
+  margin-left: 80px;
+} */
 

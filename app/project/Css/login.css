@@ -4,8 +4,9 @@ body {
 	margin: 0;
 	display: flex;
 	justify-content: center;
-	background-image:url("/project/Images/login2.jpg");
+	background-image:url("/project/Images/login.webp");
 	align-items: center;
+	background-size: cover;
 	height: 100vh;
 }
 
@@ -42,3 +43,11 @@ button {
 	border-radius: 4px;
 	cursor: pointer;
 }
+#error{
+	color:red;
+
+  }
+#message{
+	color:red;
+}
+  

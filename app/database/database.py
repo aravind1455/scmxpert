@@ -1,10 +1,10 @@
 import pymongo
-dburl="mongodb://localhost:27017"
+dburl="mongodb+srv://aravindsvec123:4bwm2d4mPsrAubxJ@cluster0.zef7rbt.mongodb.net/"
 connection=pymongo.MongoClient(dburl)
 
-projectdb=connection["aravind"]
+projectdb=connection["SCMXpert"]
 test=projectdb["test"]
-shipment=projectdb["shipmentdata"]
+shipment=projectdb["ShipmentData"]
 signup=projectdb["signup"]
 
 

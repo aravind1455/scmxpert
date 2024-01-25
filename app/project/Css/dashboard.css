@@ -260,5 +260,18 @@ background-color: var(--Border-color);
    
     } 
     
+.no-underline {
+    text-decoration: none;
+}
+
+.logout-link {
+    cursor: pointer; /* Add this to indicate it's clickable */
+    /* text-decoration: none; /* Remove underlines */
+    /* border: none; Remove border  */
+    padding: 0; /* Remove any default padding */
+    margin: 0; /* Remove any default margin */
+    color:var(--primary-color)
+
+}
 
     

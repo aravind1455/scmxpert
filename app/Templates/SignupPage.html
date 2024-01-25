@@ -3,7 +3,7 @@
 <html>
 <head>
   <title>Registration Form</title>
-    <link rel="stylesheet" href="/project/Css/signup.css" />
+    <link rel="stylesheet" href="/project/Css/SignupPage.css" />
 </head>
 <body>
 
@@ -11,6 +11,11 @@
   <div class="center">
     <h1>Register</h1>
     <form id="signupForm" method="post" action="/signup">
+      <div id="success">
+        {% if success_message %}
+            <p>{{ success_message }}</p>
+        {% endif %}
+      </div>
       <span id="error">{{error_message}}</span>
       <div class="txt_field">
         <input type="text" name="username" id="username" required>
@@ -43,6 +48,6 @@
     </form>
   </div>
 </div>
-<script src="/project/Javascript/signup.js"></script>
+<script src="/project/Javascript/SignupPage.js"></script>
 </body>
 </html>

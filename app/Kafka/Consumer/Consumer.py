@@ -46,8 +46,8 @@ import json
 from pymongo import MongoClient
 
 # Connect to MongoDB
-client = MongoClient('mongodb://localhost:27017')  # Replace with your MongoDB connection string
-db = client['aravind']  # Replace with your MongoDB database name
+client = MongoClient('mongodb+srv://aravindsvec123:4bwm2d4mPsrAubxJ@cluster0.zef7rbt.mongodb.net/')  # Replace with your MongoDB connection string
+db = client['SCMXpert']  # Replace with your MongoDB database name
 collection = db['DeviceData']  
 conf = {'bootstrap.servers': 'localhost:9092',
         'group.id': 'foo',
@@ -56,7 +56,7 @@ conf = {'bootstrap.servers': 'localhost:9092',
 
 # consumer = Consumer(conf)
 consumer = Consumer(conf)
-topic = "topic1"
+topic = "topic3"
 consumer.subscribe([topic])
 try:
     while True:
@@ -71,12 +71,15 @@ try:
             print("ERROR: %s".format(msg.error()))
         else:
             # Extract the (optional) key and value, and print.
-            
-            print("Consumed event from topic {topic}: key = {key:12} value = {value:12}".format(
-            topic=msg.topic(), key=msg.key().decode('utf-8'), value=msg.value().decode('utf-8')))
-            data = msg.value().decode('utf-8')
-            print(data,'data before the db')
-            collection.insert_one(json.loads(data))
+            try:
+                print("Consumed event from topic {topic}: key = {key:12} value = {value:12}".format(
+                topic=msg.topic(), key=msg.key().decode('utf-8'), value=msg.value().decode('utf-8')))
+                data = msg.value().decode('utf-8')
+                print(data,'data before the db')
+                collection.insert_one(json.loads(data))
+            except Exception as e:
+                 print(e)
+                 
 except KeyboardInterrupt:
     pass
 finally:

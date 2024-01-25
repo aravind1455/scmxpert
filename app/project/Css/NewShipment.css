@@ -6,14 +6,14 @@
     position: relative;
     max-width: 900px;
     width: 100%;
-    border-radius: 6px;
+    border-radius: 10px;
     padding: 10px 120px;
     margin: 200px 15px 0px 590px;
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     align-items: center;
     height:850px;
-    border: 4px solid yellowgreen;
+    border: 4px solid yellow;
 }
 .container header{
     position: relative;
@@ -21,12 +21,16 @@
     font-weight: 600;
     color: #333;
 }
-
+.main{
+    background-image: url(/project/Images/ship1.jpg);
+    backdrop-filter: blur(10px);
+    background-size: cover;
+}
 .container form{
     position: relative;
     margin-top: 0px;
     min-height: 490px;
-    background-color: #fff;
+    background-color: #ffffff;
   
 }
 .container form .form{
@@ -82,9 +86,10 @@ form .fields .input-field{
     outline: none;
     font-size: 20px;
     font-weight: 400;
-    color: #333;
+    color: #333333;
     border-radius: 5px;
-    border: 4px solid yellowgreen;
+    border: 4px solid rgb(84, 50, 205);
+    border-radius: 80px;
     padding: 0 15px;
     height: 42px;
     margin: 8px 0;
@@ -98,6 +103,7 @@ form .fields .input-field{
 .input-field input[type="date"]:valid{
     color: #333;
 }
+
 .container form button, .backBtn{
     display: flex;
     align-items: center;

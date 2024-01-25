@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     <script src="../project/Javascript/log.js"></script>
-    <link rel="stylesheet" href="/project/Css/dashboard.css">
+    <!-- <link rel="stylesheet" href="/project/Css/dashboard.css"> -->
     <link rel="stylesheet" href="/project/Css/login.css">
     
     <title>Login Form with Captcha</title>
@@ -14,8 +13,9 @@
 </head>
 <body>
 
-<div class="login-container">
+<!-- <div class="login-container">
     <h2>Login Form</h2>
+    <span id="error"></span>
     <form id="loginForm">
         <input ype="text" id="username" name="username"  placeholder="Username" required>
         <input type="password" id="password" name="password" placeholder="Password" required>
@@ -28,13 +28,42 @@
         <input type="text" id="userCaptcha" placeholder="Enter Captcha" required>
 
         <button type="button" type="submit" id="submit" onclick="validateForm()">Login</button>
-        <a href="/signup"><button type="button" type="submit" id="submit">Signup</button><br><br></a>
+        <a href="/signup"><button type="button" type="submit" id="submit1">Signup</button><br><br></a>
         <a href=/changepassword>forgot password??</a>
 
     </form>
 </div>
+<script src="/project/Javascript/log.js"></script> -->
 
-<script>
+<div class="login-container">
+    <h2>Login Form</h2>
+    <div id="message">
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+    </div>
+    <span id="error"></span>
+    <form id="loginForm">
+        <input type="text" id="username" name="username" placeholder="Username" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+
+        <div class="captcha-container">
+            <span id="captcha"></span>
+            <button type="button" id="generateCaptchaBtn">Generate Captcha</button>
+        </div>
+
+        <input type="text" id="userCaptcha" placeholder="Enter Captcha" required>
+        <button type="button" id="submit">Login</button>
+
+        <!-- <button type="button" id="submit" onclick="validateForm()">Login</button> -->
+        <a href="/signup"><button type="button" id="submit1">Signup</button><br><br></a>
+        <a href="/changepassword">Forgot password??</a>
+    </form>
+</div>
+<script src="/project/Javascript/log.js"></script>
+
+
+<!-- <script>
     // Captcha generator function
     function generateCaptcha() {
         const captchaElement = document.getElementById('captcha');
@@ -55,17 +84,17 @@
 
         if (userCaptcha === generatedCaptcha) {
             alert('Captcha is valid. Login successful!');
-            window.location.href = "/dashboard";
+            
             // Add your login logic here
         } else {
             alert('Captcha is invalid. Please try again.');
-            window.location.href = "/login";
+            
         }
     }
 
     // Initial captcha generation
     generateCaptcha();
-</script>
+</script> -->
 
 </body>
 </html>

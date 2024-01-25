@@ -2,18 +2,19 @@
 /* default styling. Nothing to do with freexing first row and column */
 main {display: flex;}
 main > * {border: 1px solid;}
-table {border-collapse: collapse; font-family: helvetica}
+table { font-family: helvetica}
 td, th {border: 1px solid;
  padding: 10px;
  min-width: 200px;
- background-color: antiquewhite;
+ background-color: rgb(194, 214, 213);
  box-sizing: border-box;
  text-align: left;
 }
 body{
     display: absolute;
     height: 100vh;
-    background: url("/project/Images/db.jpg");
+    background: url("/project/Images/shipping3.jpg");
+    backdrop-filter: blur(2.5px);
     background-size: cover;
 }
 .table-container {
@@ -21,7 +22,7 @@ body{
  max-height: 600px;
  width: 1600px;
  overflow: scroll;
- margin:20px 0px 0px 550px;
+ margin:20px 0px 0px 400px;
 }
  
 thead th {
@@ -29,7 +30,8 @@ thead th {
  position: sticky;
  top: 0;
  z-index: 2;
- background: hsl(20, 50%, 70%);
+ background: rgba(17, 223, 223, 0.911);
+ color:white;
 }
  
 thead th:first-child {
@@ -47,7 +49,7 @@ tfoot td {
  position: sticky;
  bottom: 0;
  z-index: 2;
- background: hsl(20, 50%, 70%);
+ background: rgba(174, 235, 7, 0.877);
 }
  
 tfoot td:first-child {
@@ -64,19 +66,27 @@ tr > :first-child {
  box-shadow: inset 0px 1px black;
 }
 tr:nth-child(even) {
-    background-color: rgba(150, 212, 212, 0.4);
+    background-color:  rgba(17, 223, 223, 0.911);
   }
   
   th:nth-child(even),td:nth-child(even) {
-    background-color: rgba(150, 212, 212, 0.4);
+    background-color:  rgba(17, 223, 223, 0.911);
   }
   .table1{
     background-color: aqua;
     height:60px;
     width:1000px;
+    border-radius: 20px;
     text-align:center;
     font-size:30px;
-    margin:300px 0px 0px 800px;
+    margin:300px 0px 0px 670px;
   }
 
-
+#error{
+  color:red;
+  border: 2px solid red;
+  position:absolute;
+  margin-left:900px;
+  margin-top:200px;
+  font-size: 40px;
+}
