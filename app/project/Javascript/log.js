@@ -1,3 +1,4 @@
+
 console.log("working");
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('submit').addEventListener('click', function (event) {
@@ -79,7 +80,7 @@ function logout() {
     sessionStorage.removeItem("username");
     sessionStorage.removeItem("email");
     sessionStorage.removeItem("role");
-    window.location.href= "/login";
+    window.location.href= "/";
     // You can add more cleanup here if needed
 }
 

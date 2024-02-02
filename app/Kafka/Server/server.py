@@ -8,48 +8,50 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+SERVER_IP = os.getenv("SERVER_IP")
+SERVER_PORT = int(os.getenv("SERVER_PORT"))
 
-SERVER = socket.gethostbyname(socket.gethostname()) #get Ip addr
-print(SERVER)
-ADDR = ("127.0.0.1", 12345)
+ADDR = (SERVER_IP, SERVER_PORT)
 FORMAT = 'utf-8'
-DISCONNECT_MESSAGE = "!DISCONNECT"
+
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-print("socket created")
+# AF_INET: Address (IPv4)
+# SOCK_STREAM: Socket type (TCP)
+print("Socket created")
 
-# bind this socket to the address we configured earlier
-server.bind(ADDR)    
+server.bind(ADDR)
 server.listen(2)
-print(f"[LISTENING] Server is listening on {SERVER}")
+print(f"[LISTENING] Server is listening on {SERVER_IP}:{SERVER_PORT}")
 conn, addr = server.accept()
-print(f'CONNECTION FROM {ADDR} HAS BEEN ESTABLISHED')
+print(f'CONNECTION FROM {addr} HAS BEEN ESTABLISHED')
+
 connected = True
 while connected:
-        try:
-            for i in range(0,5):
-                route = ['Newyork,USA','Chennai, India','Bengaluru, India','London,UK']
-                routefrom = random.choice(route)
-                routeto = random.choice(route)
-                if (routefrom!=routeto):
-                    data = {
-                        "Battery_Level":round(random.uniform(2.00,5.00),2),
-                        "Device_ID": random.randint(1156053076,1156053078),
-                        "First_Sensor_temperature":round(random.uniform(10,40.0),1),
-                        "Route_From":routefrom,
-                        "Route_To":routeto
-                        }
-                     # Convert dictionary to JSON format and encode it
-                    userdata = (json.dumps(data, indent=1)).encode(FORMAT)  # Convert dictionary to JSON format and encode it
-                    conn.send(userdata)
-                    print(userdata)
-                    time.sleep(10)
-                else:
-                    continue
+    try:
+        for i in range(0, 5):
+            route = ['New York, USA', 'Chennai, India', 'Bengaluru, India', 'London, UK']
+            routefrom = random.choice(route)
+            routeto = random.choice(route)
 
-           
-        except IOError as e:
-            if e.errno == errno.EPIPE:
-                pass
+            if routefrom != routeto:
+                data = {
+                    "Battery_Level": round(random.uniform(2.00, 5.00), 2),
+                    "Device_ID": random.randint(1156053076, 1156053078),
+                    "First_Sensor_temperature": round(random.uniform(10, 40.0), 1),
+                    "Route_From": routefrom,
+                    "Route_To": routeto
+                }
+# Python object (obj) and returns a JSON-formatted string.
+                userdata = (json.dumps(data, indent=1)).encode(FORMAT)
+                conn.send(userdata)
+                print(userdata)
+                time.sleep(10)
+            else:
+                continue
 
-conn.close()    #close the connection
+    except IOError as e:
+        if e.errno == errno.EPIPE:
+            pass
+
+conn.close()

@@ -1,32 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGISTICS</title>
-    <link rel="stylesheet" href="/project/Css/StartingPage.css">
+    <title>Logistics</title>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/project/CSS/StartingPage.css">
 </head>
+
 <body>
-    <div class="banner">
-        <div class="navbar">
-            <div class="logo">SCM-Xpert</div>
-            <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="/login">LOGIN</a></li>
-                <li><a href="/signup">SIGNUP</a></li>
-            </ul>
-        </div>
- 
-        <div class="content">
-            <h1 style="color:yellow">Logistics World</h1>
-            <P>Logistics mastery, where every detail counts</P>
+
+    <!-- Header Design -->
+    <header class="header">
+        <a href="#" class="logo">SCMXpert</a>
+    </header>
+
+    <!-- Home Section Design -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello</h3>
+            <h1>Welcome to SCMXpert</h1>
+            <p>Logistics mastery, where every detail counts</p>
             <p>Connecting the world, one shipment at a time – Where efficiency meets reliability in the world of logistics.</p>
-            <div>
-                <a href="/login"><button type="button"><span></span> Login</button></a>
+
+            <div class="social-media">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                <a href="https://www.linkedin.com/company/scampert"><i class='bx bxl-linkedin'></i></a>
             </div>
+
+            <a href="/login" class="btn">LOGIN</a><br><br>
+            <a href="/signup" class="btn">SIGNUP</a>
         </div>
- 
-    </div>
- 
+
+        <div class="profession-container">
+            <div class="profession-box">
+                <div class="profession" style="--i:0;">
+                    <i class='bx bx-check-shield'></i>
+                    <h3>Security</h3>
+                </div>
+                <div class="profession" style="--i:1;">
+                    <i class='bx bx-package'></i>
+                    <h3>Shipments</h3>
+                </div>
+                <div class="profession" style="--i:2;">
+                    <i class='bx bx-map'></i>
+                    <h3>Tracking</h3>
+                </div>
+                <div class="profession" style="--i:3;">
+                    <i class='bx bx-globe'></i>
+                    <h3>Reporting</h3>
+                </div>
+
+                <div class="circle"></div>
+            </div>
+
+            <div class="overlay"></div>
+        </div>
+    </section>
+
 </body>
+
 </html>

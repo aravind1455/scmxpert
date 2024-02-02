@@ -2,7 +2,7 @@ from fastapi import APIRouter, Request, Depends, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from routes.login import decode_token
+from routes.login import *
 from database.database import *
 from pydantic import BaseModel
 from fastapi.security import OAuth2PasswordBearer
@@ -41,6 +41,10 @@ def sign1(request: Request, shipment1: ShipmentData, token: str = Depends(oauth2
         if any(value == "" for value in shipment1.dict().values()):
             raise HTTPException(status_code=400, detail="All fields must be filled")
 
+        # Check if shipment_number has exactly 7 characters
+        if len(shipment1.shipment_number) != 7:
+            raise HTTPException(status_code=400, detail="Shipment number must be 7 characters")
+
         existing_data = shipment.find_one({"shipment_number": shipment1.shipment_number}, {"_id": 0})
         if existing_data:
             raise HTTPException(status_code=400, detail="Shipment number already used")
@@ -66,11 +70,11 @@ def sign1(request: Request, shipment1: ShipmentData, token: str = Depends(oauth2
 
         # Insert shipment data into the database
         shipment.insert_one(base)
-        
         return JSONResponse(content={"error_message": "Shipment Created Successfully"},status_code=200)
 
     except HTTPException as http_error:
         return JSONResponse(content={"error_message": http_error.detail})
+
 
 
 

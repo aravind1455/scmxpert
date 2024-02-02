@@ -26,6 +26,7 @@
     top: 20%;
     transform: translateX(-50%);
     white-space: nowrap;
+    text-transform: uppercase;
   }
   
   .button {

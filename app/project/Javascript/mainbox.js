@@ -1,7 +1,7 @@
-// Select the elements with the classes "left", "right", and "container" from the DOM
 const left = document.querySelector(".left");
 const right = document.querySelector(".right");
 const container = document.querySelector(".container");
+// Select the elements with the classes "left", "right", and "container" from the DOM
 
 // Add event listeners for mouseenter and mouseleave events on the "left" element
 left.addEventListener("mouseenter", () => {

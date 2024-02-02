@@ -1,110 +1,142 @@
+/* Default styling - unchanged */
 
-/* default styling. Nothing to do with freexing first row and column */
-main {display: flex;}
-main > * {border: 1px solid;}
-table {border-collapse: collapse; font-family: helvetica}
-td, th {border: 1px solid;
- padding: 10px;
- min-width: 200px;
- background-color: #3f0097b7;
- box-sizing: border-box;
- text-align: center;
+main {
+  display: flex;
 }
-body{
-    display: absolute;
-    height: 100vh;
-    background: url("/project/Images/devicedata1.webp");
-    backdrop-filter: blur(3px);
-    color: white;
-    background-size: cover;
+
+main > * {
+  border: 1px solid;
 }
+
+table {
+  border-collapse: collapse;
+  font-family: helvetica;
+}
+
+td, th {
+  border: 1px solid;
+  padding: 10px;
+  min-width: 200px;
+  background-color: #3f0097b7;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+body {
+  display: absolute;
+  height: 100vh;
+  background: url("/project/Images/devicedata1.webp");
+  backdrop-filter: blur(3px);
+  color: white;
+  background-size: cover;
+}
+
 .table-container {
- position: absolute;
- max-height: 600px;
- width: 1065px;
- overflow-y: auto;
- margin:20px 0px 0px 550px;
+  position: absolute;
+  max-height: 600px;
+  width: 1065px;
+  overflow-y: auto;
+  margin: 20px 0px 0px 550px;
+  animation: fadeIn 1s ease-in-out; /* Fade-in animation */
 }
- 
+
 thead th {
- position: -webkit-sticky;
- position: sticky;
- top: 0;
- z-index: 2;
- background:  #3f0097b7;
- color:ghostwhite;
- height:60px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #3f0097b7;
+  color: ghostwhite;
+  height: 60px;
+  animation: headerColorChange 1s ease-in-out infinite alternate; /* Background color change animation */
 }
- 
+
 thead th:first-child {
- left: 0;
- z-index: 3;
+  left: 0;
+  z-index: 3;
 }
- 
+
 tfoot {
- position: -webkit-sticky;
- bottom: 0;
- z-index: 2;
+  position: -webkit-sticky;
+  bottom: 0;
+  z-index: 2;
 }
- 
+
 tfoot td {
- position: sticky;
- bottom: 0;
- z-index: 2;
- background: hsl(20, 50%, 70%);
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  background: hsl(20, 50%, 70%);
 }
- 
+
 tfoot td:first-child {
- z-index: 3;
+  z-index: 3;
 }
- 
+
 tbody {
- overflow: scroll;
- height: 200px;
+  overflow: scroll;
+  height: 200px;
 }
- 
 
 tr > :first-child {
- box-shadow: inset 0px 1px black;
+  box-shadow: inset 0px 1px black;
 }
+
 tr:nth-child(even) {
-    background-color: #3f0097b7
-  }
-  
-  th:nth-child(even),td:nth-child(even) {
-    background-color: #3f0097b7;
-  }
-  .table1{
-    background-color: #3f0097b7;
-    height:60px;
-    width:1050px;
-    color: aqua;
-    text-align:center;
-    font-size:30px;
-    margin:300px 0px 0px 550px;
-  }
+  background-color: #3f0097b7;
+}
 
-  .table1 select,
-    .table1 button {
-        font-size: 25px; /* Adjust the size as needed */
-    }
+th:nth-child(even), td:nth-child(even) {
+  background-color: #3f0097b7;
+}
 
-#error{
-  color:rgb(245, 241, 241);
+.table1 {
+  background-color: #3f0097b7;
+  height: 60px;
+  width: 1050px;
+  color: aqua;
+  text-align: center;
+  font-size: 30px;
+  margin: 300px 0px 0px 550px;
+}
+
+.table1 select,
+.table1 button {
+  font-size: 25px;
+}
+
+#error {
+  color: rgb(245, 241, 241);
   position: absolute;
   margin-left: 970px;
-  margin-top:250px;
-  font-size:x-large;
+  margin-top: 250px;
+  font-size: x-large;
   font-weight: 600;
+}
 
-}
-.nextBtn{
-  background-color:#3f0097b7;
-  border:2px solid white;
+.nextBtn {
+  background-color: #3f0097b7;
+  border: 2px solid white;
   color: yellow;
-  margin-left: 50px;  
+  margin-left: 50px;
 }
-/* #device_id{
-  margin-left: 80px;
-} */
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes headerColorChange {
+  from {
+    background: #3f0097b7;
+  }
+  to {
+    background: #2c005e9c;
+  }
+}
 

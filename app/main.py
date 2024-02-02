@@ -1,4 +1,3 @@
-# Import necessary modules and classes from FastAPI
 from fastapi import FastAPI
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -35,13 +34,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Create an instance of Jinja2Templates to handle rendering HTML templates
-html = Jinja2Templates(directory="HTML")
+# html = Jinja2Templates(directory="HTML")
+html = Jinja2Templates(directory="Templates")
 
-# Mount the "project" directory containing static files (e.g., CSS, JS) under the "/project" route
 app.mount("/project", StaticFiles(directory="project"), name="project")
 
-# Include routers for each route file
+
 app.include_router(dash)
 app.include_router(ship)
 app.include_router(shiptable)

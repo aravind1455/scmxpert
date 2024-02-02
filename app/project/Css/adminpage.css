@@ -9,6 +9,7 @@
     display: flex; 
     justify-content: center;
     align-items: center;
+    overflow: hidden; 
    }
    
    .center_body{
@@ -23,15 +24,6 @@
     align-items: center;
     transition: all 0.5s linear;
    }
-/*    
-   .center_body h1{
-    font-size: 200px;
-    color: yellow;
-    letter-spacing: 5px;
-    font-weight: 700;
-    text-shadow: 10px 9px 3px #74b9ff;
-    transition: all 1s linear;
-   } */
    
    .center_body h2{
     color: yellow;

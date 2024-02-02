@@ -1,9 +1,9 @@
-from fastapi import APIRouter, Request, Depends, HTTPException, status, Form, Response
+from fastapi import APIRouter, Request, Depends, HTTPException
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse
 from pymongo import MongoClient
-from routes.login import decode_token, signup, OAuth2PasswordBearer, get_current_user
+from routes.login import get_current_user
 
 client = MongoClient('mongodb+srv://aravindsvec123:4bwm2d4mPsrAubxJ@cluster0.zef7rbt.mongodb.net/')  # Replace with your MongoDB connection string
 db = client['SCMXpert']  # Replace with your MongoDB database name
@@ -13,7 +13,7 @@ route = APIRouter()
 html = Jinja2Templates(directory="Templates")
 route.mount("/project", StaticFiles(directory="project"), name="project")
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+# oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 @route.get("/devicedata")
 def sign(request: Request):

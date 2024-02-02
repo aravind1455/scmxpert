@@ -37,12 +37,8 @@ def change(request: Request, email: str = Form(...), password: str = Form(), con
                 signup.update_one({"email": email}, {"$set": {"password": pw, "confirmpassword": confirm}})
                 # Redirect to login page with success message
                 return html.TemplateResponse("login.html", {"request": request, "message": "Password updated successfully"})
-            else:
-                # Password is already present in the database
-                return html.TemplateResponse("PasswordChange.html", {"request": request, "message": "Password already exists. Try a new password."})
-    
     # Redirect to the emailget page with an error message
-    return html.TemplateResponse("PasswordChange.html", {"request": request, "message": "Invalid email or passwords do not match"})
+    return html.TemplateResponse("PasswordChange.html", {"request": request, "message": "Invalid email"})
 
 
 

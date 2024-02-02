@@ -138,15 +138,15 @@ padding: 30px 0 20px 10px;
 height: calc(100vh - 70px); 
 width: 250px; 
 position: relative; 
-overflow-y: scroll; 
-overflow-x: hidden; 
+/* overflow-y: scroll;  */
+overflow: hidden; 
 transition: all 0.5s ease-in-out; 
 } 
 .navcontainer::-webkit-scrollbar { 
 display: none; 
 } 
 .navclose { 
-width: 80px; 
+width: 75px; 
 } 
 .nav-option { 
 width: 250px; 
@@ -174,7 +174,7 @@ gap: 30px;
 } 
 
 .option1 { 
-border-left: 5px solid #010058af; 
+border-left: 4px solid #010058af; 
 background-color: var(--Border-color); 
 color: white; 
 cursor: pointer; 

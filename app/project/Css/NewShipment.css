@@ -8,7 +8,7 @@
     width: 100%;
     border-radius: 10px;
     padding: 10px 120px;
-    margin: 200px 15px 0px 590px;
+    transform: translate(700px,200px);
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     align-items: center;
@@ -34,7 +34,7 @@
   
 }
 .container form .form{
-    position: absolute;
+    position: relative;
     background-color: #fff;
     transition: 0.3 ease;
 }

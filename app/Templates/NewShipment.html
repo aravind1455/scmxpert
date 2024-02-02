@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,12 @@
 				initial-scale=1.0">
     <title>NEW SHIPMENTS</title>
     <link rel="stylesheet" href="/project/Css/Dashboard.css">
-    <link rel="stylesheet" href="/project/Css/mainbox.css">
+    <!-- <link rel="stylesheet" href="/project/Css/mainbox.css"> -->
     <link rel="stylesheet" href="/project/Css/NewShipment.css">
-    <script src="/project/Javascript/Dashboard.js"></script>
-    <script src="/project/Javascript/NewShipment.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js"
+        integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    
+
 </head>
 
 <body>
@@ -20,70 +22,82 @@
     <header>
 
         <div class="logosec">
-			
-			<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
-				class="icn menuicn" id="menuicn" alt="menu-icon">
-				<div class="logo">SCMXpert</div>
-		</div>
-		<a href="/myaccount"><div class="dp">
-			<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
-				class="dpicn" alt="dp"></a>
-		</div>
+
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
+                class="icn menuicn" id="menuicn" alt="menu-icon">
+            <div class="logo">SCMXpert</div>
+        </div>
+        <a href="/myaccount">
+            <div class="dp">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
+                    class="dpicn" alt="dp">
+        </a>
+        </div>
     </header>
     <div class="main-container">
         <div class="navcontainer">
             <nav class="nav">
                 <div class="nav-upper-options">
-					<div class="nav-option option1"> 
-						<img src="/project/Images/exf.jpg" class="dp" alt="dashboard"> 
-                        <h3>SCMXpert</h3> 
-					</div> 
-					<a href="/Dashboard" class="no-underline"><div class="nav-option option">
-						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
-							class="nav-img" alt="dashboard">
-						<h3> DASHBOARD</h3>
-					</div></a>
-					<!-- <div class="nav-option option">
+                    <div class="nav-option option1">
+                        <img src="/project/Images/dp1.jpg" class="dp" alt="dashboard">
+                        <h3>SCMXpert</h3>
+                    </div>
+                    <a href="/Dashboard" class="no-underline">
+                        <div class="nav-option option">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+                                class="nav-img" alt="dashboard">
+                            <h3> DASHBOARD</h3>
+                        </div>
+                    </a>
+                    <!-- <div class="nav-option option">
 						<img src="/project/Images/user.png"
 							class="nav-img" alt="account">
 						<a href="/myaccount"><h3>My Account</h3></a>
 					</div> -->
-                    <!-- <div class="option2 nav-option" id="update" style="display: none;">
-						<img src="/project/Images/updaterole.jpg"
-							class="nav-img" alt="articles">
-						<a href="/changerole"><h3>UPDATE ROLE</h3></a>
-					</div> -->
-					<a href="/shipmenttable" class="no-underline"><div class="option2 nav-option">
-						<img src="/project/Images/database.jpg"
-							class="nav-img" alt="articles">
-						<h3>MY SHIPMENT</h3>
-					</div></a>
+                    <a href="/changerole" class="no-underline" id="update1" style="display: none;">
+                        <div class="option2 nav-option" id="update" style="display: none;">
+                            <img src="/project/Images/updaterole.jpg" class="nav-img" alt="update">
+                            <!-- <a href="/changerole"><h3>UPDATE ROLE</h3></a> -->
+                            <h3>UPDATE ROLE</h3>
+                        </div>
+                    </a>
 
-					<a href="/myshipments" class="no-underline"><div class="nav-option option3">
-						<img src="/project/Images/download (1).jpg"
-							class="nav-img" alt="report">
-							<h3>NEW SHIPMENT</h3>
-					</div></a>
+                    <a href="/shipmenttable" class="no-underline">
+                        <div class="option2 nav-option">
+                            <img src="/project/Images/database.jpg" class="nav-img" alt="shipment">
+                            <h3>MY SHIPMENT</h3>
+                        </div>
+                    </a>
 
-					<a href="/devicedata" class="no-underline"><div class="nav-option option4">
-						<img src="/project/Images/devicedata.jpg"
-							class="nav-img" alt="institution">
-							<h3> DEVICE DATA</h3>
-					</div></a>
-					<!-- <div class="nav-option option4">
+                    <a href="/myshipments" class="no-underline">
+                        <div class="nav-option option3">
+                            <img src="/project/Images/download (1).jpg" class="nav-img" alt="newshipment">
+                            <h3>NEW SHIPMENT</h3>
+                        </div>
+                    </a>
+
+                    <a href="/devicedata" class="no-underline">
+                        <div class="nav-option option4">
+                            <img src="/project/Images/devicedata.jpg" class="nav-img" alt="devicedata">
+                            <h3> DEVICE DATA</h3>
+                        </div>
+                    </a>
+                    <!-- <div class="nav-option option4">
 						<img src="/project/Images/logout2.jpg" class="dp" alt="dashboard">
 						<button onclick="logout()" id="logout"><h3>LOG-OUT</h3></button>
 				</div> -->
-                <a onclick="logout()"><div class="nav-option option4">
-                    <img src="/project/Images/logout2.jpg" class="nav-img" alt="dashboard">
-                    <h3 style="color:rgb(71, 5, 77)">LOG-OUT</h3>
-                </div></a>
-				</div>
+                    <a onclick="logout()">
+                        <div class="nav-option option4">
+                            <img src="/project/Images/logout2.jpg" class="nav-img" alt="logout">
+                            <h3 style="color:rgb(71, 5, 77)">LOG-OUT</h3>
+                        </div>
+                    </a>
+                </div>
             </nav>
         </div>
         <div class="main">
             <div class="container">
-                <form >
+                <form>
                     <div class="form first">
                         <div class="details personal">
                             <span class="title">NEW SHIPMENTS</span>
@@ -91,7 +105,7 @@
                             <div class="fields">
                                 <div class="input-field">
                                     <label>Shipment Number <i id="star">*</i></label>
-                                    <input type="text"   id="shipment_number" placeholder="Shipment Number" required>
+                                    <input type="text" id="shipment_number" placeholder="Shipment Number" required>
                                 </div>
 
                                 <div class="input-field">
@@ -101,7 +115,7 @@
 
                                 <div class="input-field">
                                     <label>Route Details <i id="star">*</i></label>
-                                    <select type="text" id="route_details" placeholder="Route Details"  required>
+                                    <select type="text" id="route_details" placeholder="Route Details" required>
                                         <option class="input-option">HYDERABAD-MUMBAI</option>
                                         <option class="input-option">TIRUPATI-BANGLORE</option>
                                         <option class="input-option">CHENNAI-MYSORE</option>
@@ -109,7 +123,7 @@
                                 </div>
                                 <div class="input-field">
                                     <label>Goods Type <i id="star">*</i></label>
-                                    <select type="text" id="goods_type" placeholder="Goods Type"  required>
+                                    <select type="text" id="goods_type" placeholder="Goods Type" required>
                                         <option class="input-option">MEDICAL</option>
                                         <option class="input-option">ELECTRICAL</option>
                                         <option class="input-option">AUTOMOTIVE PARTS</option>
@@ -121,7 +135,7 @@
 
                                 <div class="input-field">
                                     <label>Device <i id="star">*</i></label>
-                                    <select type="text" id="device" placeholder="Device"  required>
+                                    <select type="text" id="device" placeholder="Device" required>
                                         <option>DEVICE ID</option>
                                         <option class="input-option" value="1156053076">1156053076</option>
                                         <option class="input-option" value="1156053077">1156053077</option>
@@ -132,7 +146,8 @@
 
                                 <div class="input-field">
                                     <label>Expected Delivery Date <i id="star">*</i></label>
-                                    <input type="date" id="expected_delivery"  placeholder="Expected Delivery Date" required>
+                                    <input type="date" id="expected_delivery" placeholder="Expected Delivery Date"
+                                        required>
                                 </div>
                             </div>
                         </div>
@@ -160,27 +175,32 @@
 
                                 <div class="input-field">
                                     <label>Serial Number Of Goods <i id="star">*</i></label>
-                                    <input type="number" id="serial_number" placeholder="Serial Number Of Goods" required>
+                                    <input type="number" id="serial_number" placeholder="Serial Number Of Goods"
+                                        required>
                                 </div>
 
                                 <div class="input-field">
-                                    <label>Shipment Description  <i id="star">*</i></label>
-                                    <input type="text" id="shipment_description" placeholder="Shipment Description" required>
+                                    <label>Shipment Description <i id="star">*</i></label>
+                                    <input type="text" id="shipment_description" placeholder="Shipment Description"
+                                        required>
                                 </div>
-                                
+
                             </div>
                             <button class="nextBtn" id="submit">
                                 <span class="btnText">Submit</span>
                                 <i class="uil uil-navigator"></i>
                             </button>
-                           <br>
-                           <button type="clear">clear</button>
+                            <br>
+                            <button type="clear">clear</button>
                         </div>
                     </div>
-                
+
             </div>
         </div>
     </div>
-</form>
+    </form>
+    <script src="../project/Javascript/Dashboard.js"></script>
+    <script src="/project/Javascript/NewShipment.js"></script>
 </body>
+
 </html>

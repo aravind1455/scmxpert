@@ -1,129 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, 
-				initial-scale=1.0">
-	<title>MY SHIPMENTS</title>
-	
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY SHIPMENTS</title>
+    
+    <link rel="stylesheet" href="/project/Css/Dashboard.css">
+    <link rel="stylesheet" href="/project/Css/mainbox.css">
+    <link rel="stylesheet" href="/project/Css/MyShipment.css">
 	<script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="/project/Css/Dashboard.css">
-	<link rel="stylesheet" href="/project/Css/mainbox.css">
-	<link rel="stylesheet" href="/project/Css/MyShipment.css">
-	<script src="../project/Javascript/MyShipment.js"></script>
 	
-
 </head>
-
 <body>
-
-	<!-- for header part -->
-	<header>
-
-		<div class="logosec">
-			
-			<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
-				class="icn menuicn" id="menuicn" alt="menu-icon">
-				<div class="logo">SCMXpert</div>
-		</div>
-		<a href="/myaccount"><div class="dp">
-			<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
-				class="dpicn" alt="dp"></a>
-		</div>
-	</header>
-	<div class="main-container">
-		<div class="navcontainer">
-			<nav class="nav">
-				<div class="nav-upper-options">
-					<div class="nav-option option1"> 
-						<img src="/project/Images/exf.jpg" class="dp" alt="dashboard"> 
-                        <h3>SCMXpert</h3> 
-					</div> 
-					<a href="/Dashboard" class="no-underline"><div class="nav-option option">
-						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
-							class="nav-img" alt="dashboard">
-						<h3> DASHBOARD</h3>
-					</div></a>
-					<!-- <div class="nav-option option">
-						<img src="/project/Images/user.png"
-							class="nav-img" alt="account">
-						<a href="/myaccount"><h3>My Account</h3></a>
-					</div> -->
-					<!-- <div class="option2 nav-option" id="update" style="display: none;">
-						<img src="/project/Images/updaterole.jpg"
-							class="nav-img" alt="articles">
-						<a href="/changerole"><h3>UPDATE ROLE</h3></a>
-					</div> -->
-					<a href="/shipmenttable" class="no-underline"><div class="option2 nav-option">
-						<img src="/project/Images/database.jpg"
-							class="nav-img" alt="articles">
-						<h3>MY SHIPMENT</h3>
-					</div></a>
-
-					<a href="/myshipments" class="no-underline"><div class="nav-option option3">
-						<img src="/project/Images/download (1).jpg"
-							class="nav-img" alt="report">
-							<h3>NEW SHIPMENT</h3>
-					</div></a>
-
-					<a href="/devicedata" class="no-underline"><div class="nav-option option4">
-						<img src="/project/Images/devicedata.jpg"
-							class="nav-img" alt="institution">
-							<h3> DEVICE DATA</h3>
-					</div></a>
-					<!-- <div class="nav-option option4">
-						<img src="/project/Images/logout2.jpg" class="dp" alt="dashboard">
-						<button onclick="logout()" id="logout"><h3>LOG-OUT</h3></button>
-				</div> -->
-				<a onclick="logout()"><div class="nav-option option4">
-					<img src="/project/Images/logout2.jpg" class="nav-img" alt="dashboard">
-					<h3 style="color:rgb(71, 5, 77)">LOG-OUT</h3>
-				</div></a>
-				</div>
-			</nav>
-		</div>
-		<div class="main">
-			<span id="error"></span>
-			<div>
-				
-				<div style="color:red" class="table1">MY SHIPMENTS</div>
-				
-				
-
-				<div class="table-container">
-					<div class="table-horizontal-container">
-						<table class="unfixed-table">
-							<tbody>
-								<tr>
-									<th>Shipment Number</th>
-									<th>Container Number</th>
-									<th>Route Details</th>
-									<th>Goods type</th>
-									<th>Device</th>
-									<th>Expected delivery date</th>
-									<th>PO Number</th>
-									<th>Delivery Number</th>
-									<th>NDC number</th>
-									<th>Batch Id</th>
-									<th>Serial number of goods</th>
-									<th>Shipment Description</th>
-								</tr>
-							</tbody>
-							<tbody id="table_data">
-
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-	</div>
+    <header>
+        <div class="logosec">
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png" class="icn menuicn" id="menuicn" alt="menu-icon">
+            <div class="logo">SCMXpert</div>
+        </div>
+        <a href="/myaccount">
+            <div class="dp">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png" class="dpicn" alt="dp">
+            </div>
+        </a>
+    </header>
+    <div class="main-container">
+        <div class="navcontainer">
+            <nav class="nav">
+                <div class="nav-upper-options">
+                    <div class="nav-option option1">
+                        <img src="/project/Images/dp1.jpg" class="dp" alt="dashboard">
+                        <h3>SCMXpert</h3>
+                    </div>
+                    <a href="/Dashboard" class="no-underline">
+                        <div class="nav-option option">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png" class="nav-img" alt="dashboard">
+                            <h3> DASHBOARD</h3>
+                        </div>
+                    </a>
+                    <a href="/changerole" class="no-underline" id="update1" style="display: none;">
+                        <div class="option2 nav-option" id="update" style="display: none;">
+                            <img src="/project/Images/updaterole.jpg" class="nav-img" alt="update">
+                            <h3>UPDATE ROLE</h3>
+                        </div>
+                    </a>
+                    <a href="/shipmenttable" class="no-underline">
+                        <div class="option2 nav-option">
+                            <img src="/project/Images/database.jpg" class="nav-img" alt="shipment">
+                            <h3>MY SHIPMENT</h3>
+                        </div>
+                    </a>
+                    <a href="/myshipments" class="no-underline">
+                        <div class="nav-option option3">
+                            <img src="/project/Images/download (1).jpg" class="nav-img" alt="newshipment">
+                            <h3>NEW SHIPMENT</h3>
+                        </div>
+                    </a>
+                    <a href="/devicedata" class="no-underline">
+                        <div class="nav-option option4">
+                            <img src="/project/Images/devicedata.jpg" class="nav-img" alt="devicedata">
+                            <h3> DEVICE DATA</h3>
+                        </div>
+                    </a>
+                    <a onclick="logout()">
+                        <div class="nav-option option4">
+                            <img src="/project/Images/logout2.jpg" class="nav-img" alt="logout">
+                            <h3 style="color:rgb(71, 5, 77)">LOG-OUT</h3>
+                        </div>
+                    </a>
+                </div>
+            </nav>
+        </div>
+        <div class="main">
+            <span id="error"></span>
+            <div class="table1">MY SHIPMENTS</div>
+            <div class="table-container">
+                <div class="table-horizontal-container">
+                    <table class="unfixed-table">
+                        <tbody>
+                            <tr id="header">
+                                <th>Shipment Number</th>
+                                <th>Container Number</th>
+                                <th>Route Details</th>
+                                <th>Goods type</th>
+                                <th>Device</th>
+                                <th>Expected delivery date</th>
+                                <th>PO Number</th>
+                                <th>Delivery Number</th>
+                                <th>NDC number</th>
+                                <th>Batch Id</th>
+                                <th>Serial number of goods</th>
+                                <th>Shipment Description</th>
+                            </tr>
+                        </tbody>
+                        <tbody id="table_data"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 	<script src="/project/Javascript/Dashboard.js"></script>
-	
+    <script src="../project/Javascript/MyShipment.js"></script>
 </body>
-
 </html>

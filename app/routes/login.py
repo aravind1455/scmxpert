@@ -1,3 +1,4 @@
+import asyncio
 from fastapi import APIRouter, Request, Form, Depends, HTTPException, status
 from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
@@ -7,6 +8,7 @@ from jose import jwt, ExpiredSignatureError, JWTError
 from fastapi.security import OAuth2PasswordBearer
 from datetime import datetime, timedelta
 from typing import Optional
+import secrets
 from database.database import signup  # Assuming signup is the MongoDB collection
 
 route = APIRouter()
@@ -17,7 +19,8 @@ route.mount("/project", StaticFiles(directory="project"), name="project")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
 
 
-SECRET_KEY = "your_secret_key"
+# SECRET_KEY = "your_secret_key"
+SECRET_KEY=secrets.token_hex(32)
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
@@ -29,13 +32,6 @@ pwd_cxt = CryptContext(schemes=["bcrypt"], deprecated="auto")
 def login(request: Request):
     return html.TemplateResponse("login.html", {"request": request})
 
-
-
-from fastapi import HTTPException
-
-from fastapi import HTTPException
-from fastapi import HTTPException, Request, Form
-from fastapi.responses import JSONResponse
 
 @route.post("/login")
 def login(request: Request, username: str = Form(...), password: str = Form(...)):
@@ -98,3 +94,7 @@ def get_current_user(token: str = Depends(oauth2_scheme)):
         pass
 
     return None
+
+
+
+

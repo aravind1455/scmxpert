@@ -1,92 +1,91 @@
-
 /* default styling. Nothing to do with freexing first row and column */
-main {display: flex;}
-main > * {border: 1px solid;}
-table { font-family: helvetica}
-td, th {border: 1px solid;
- padding: 10px;
- min-width: 200px;
- background-color: rgb(194, 214, 213);
- box-sizing: border-box;
- text-align: left;
+main {
+  display: flex;
 }
-body{
-    display: absolute;
-    height: 100vh;
-    background: url("/project/Images/shipping3.jpg");
-    backdrop-filter: blur(2.5px);
-    background-size: cover;
+
+main > * {
+  border: 1px solid;
 }
+
+table {
+  font-family: helvetica;
+}
+
+td, th {
+  border: 1px solid;
+  padding: 10px;
+  min-width: 200px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+body {
+  display: absolute;
+  height: 100vh;
+  background: url("/project/Images/db.jpg");
+  backdrop-filter: blur(2.5px);
+  background-size: cover;
+}
+
 .table-container {
- position: absolute;
- max-height: 600px;
- width: 1600px;
- overflow: scroll;
- margin:20px 0px 0px 400px;
+  position: absolute;
+  max-height: 600px;
+  width: 1600px;
+  overflow: auto;
+  margin: 20px 0px 0px 400px;
 }
- 
+#header{
+  position:sticky;
+  top:0;
+}
 thead th {
- position: -webkit-sticky;
- position: sticky;
- top: 0;
- z-index: 2;
- background: rgba(17, 223, 223, 0.911);
- color:white;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: rgba(17, 223, 223, 0.911);
+  color: white;
 }
- 
+
 thead th:first-child {
- left: 0;
- z-index: 3;
+  left: 0;
+  z-index: 3;
 }
- 
-tfoot {
- position: -webkit-sticky;
- bottom: 0;
- z-index: 2;
-}
- 
-tfoot td {
- position: sticky;
- bottom: 0;
- z-index: 2;
- background: rgba(174, 235, 7, 0.877);
-}
- 
-tfoot td:first-child {
- z-index: 3;
-}
- 
+
 tbody {
- overflow: scroll;
- height: 200px;
+  overflow: auto;
+  height: 200px;
 }
- 
 
 tr > :first-child {
- box-shadow: inset 0px 1px black;
+  box-shadow: inset 0px 1px black;
 }
-tr:nth-child(even) {
-    background-color:  rgba(17, 223, 223, 0.911);
-  }
-  
-  th:nth-child(even),td:nth-child(even) {
-    background-color:  rgba(17, 223, 223, 0.911);
-  }
-  .table1{
-    background-color: aqua;
-    height:60px;
-    width:1000px;
-    border-radius: 20px;
-    text-align:center;
-    font-size:30px;
-    margin:300px 0px 0px 670px;
-  }
 
-#error{
-  color:red;
+/* Alternate background colors for th and tr */
+th:nth-child(even), td:nth-child(even) {
+  background-color: rgba(17, 223, 223, 1);
+}
+
+th:nth-child(odd), td:nth-child(odd) {
+  background-color: aqua;
+}
+
+.table1 {
+  background-color: aqua;
+  height: 60px;
+  width: 1000px;
+  border-radius: 20px;
+  border:4px solid blueviolet;
+  text-align: center;
+  font-size: 30px;
+  margin: 300px 0px 0px 670px;
+  color:blueviolet;
+}
+
+#error {
+  color: red;
   border: 2px solid red;
-  position:absolute;
-  margin-left:900px;
-  margin-top:200px;
+  position: absolute;
+  margin-left: 900px;
+  margin-top: 200px;
   font-size: 40px;
 }

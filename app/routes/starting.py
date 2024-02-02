@@ -1,7 +1,7 @@
 from fastapi import APIRouter,Request,Form
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from database.database import *  
+
 
 route=APIRouter()
 html = Jinja2Templates(directory = "Templates")
