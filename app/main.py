@@ -15,9 +15,11 @@ from routes.starting import route as start
 from routes.email import route as email
 from routes.adminpage import route as admin
 from routes.updaterole import route as role
+from routes.Calculator import route as calculator
 
 # Create a FastAPI instance
 app = FastAPI()
+
 
 # Specify allowed origins for CORS (Cross-Origin Resource Sharing)
 origins = [
@@ -51,3 +53,4 @@ app.include_router(start)
 app.include_router(email)
 app.include_router(admin)
 app.include_router(role)
+app.include_router(calculator)

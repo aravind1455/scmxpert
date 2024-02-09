@@ -3,17 +3,17 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse
 from pymongo import MongoClient
-from routes.login import get_current_user
+from routes.Jwt_Token import get_current_user
 
-client = MongoClient('mongodb+srv://aravindsvec123:4bwm2d4mPsrAubxJ@cluster0.zef7rbt.mongodb.net/')  # Replace with your MongoDB connection string
-db = client['SCMXpert']  # Replace with your MongoDB database name
+client = MongoClient('mongodb+srv://aravindsvec123:4bwm2d4mPsrAubxJ@cluster0.zef7rbt.mongodb.net/')  
+db = client['SCMXpert'] 
 collection = db['DeviceData']
+
 
 route = APIRouter()
 html = Jinja2Templates(directory="Templates")
 route.mount("/project", StaticFiles(directory="project"), name="project")
 
-# oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 @route.get("/devicedata")
 def sign(request: Request):
@@ -25,7 +25,9 @@ async def get_device_data(request: Request, token: str = Depends(get_current_use
     try:
         if token:
             data1 = await request.json()
+            # print(type(data1))
             device_id = data1.get("Device_ID")
+            # print(type(device_id))
             if device_id:
                 # Assuming you want to filter data based on the received device_id {"Device_ID": device_id}
                 ship_data = list(collection.find({'Device_ID': int(device_id)}, {'_id': 0}))

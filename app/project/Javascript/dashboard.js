@@ -18,7 +18,6 @@ menuicn.addEventListener("click", () => {
     nav.classList.toggle("navclose");
 });
 
-
 function logout() {
     localStorage.removeItem("access_token");
     sessionStorage.removeItem("username");

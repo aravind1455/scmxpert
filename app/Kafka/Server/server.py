@@ -11,7 +11,7 @@ load_dotenv()
 SERVER_IP = os.getenv("SERVER_IP")
 SERVER_PORT = int(os.getenv("SERVER_PORT"))
 
-ADDR = (SERVER_IP, SERVER_PORT)
+ADDR = ("", SERVER_PORT)
 FORMAT = 'utf-8'
 
 

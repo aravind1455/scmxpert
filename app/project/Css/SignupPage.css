@@ -1,143 +1,45 @@
-body{
-	margin: 0;
-	padding: 0;
-	font-family: Roboto;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-image:url("/project/Images/login.webp");
-	height: 100vh;
-	overflow: hidden;
-	
-  }
-  
-  .center{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 29vw;
-	background: white;
-	border-radius: 10px;
-	border:3px solid #754ef9;
-  }
-  
-  .center h1{
-	text-align: center;
-	padding: 0 0 20px 0;
-	border-bottom: 1px solid #754ef9 ;
-  }
-  
-  .center form{
-	padding: 0 40px;
-	box-sizing: border-box;
-  }
-  
-  form .txt_field{
-	position: relative;
-	border-bottom: 2px solid #adadad;
-	margin: 30px 0;
-  }
-  
-  .txt_field input{
-	width: 100%;
-	padding: 0 5px;
-	height: 40px;
-	font-size: 16px;
-	/* border: 1px solid skyblue; */
-	background: none;
-	outline: none;
-	border:none;
-  }
-  
-  .txt_field label{
-	position: absolute;
-	top: 50%;
-	left: 5px;
-	color: #adadad;
-	transform: translateY(-50%);
-	font-size: 16px;
-	pointer-events: none;
-  }
-  
-  .txt_field span::before{
-	content: '';
-	position: absolute;
-	top: 40px;
-	left: 0;
-	width: 0px;
-	height: 2px;
-	background: #754ef9;
-	transition: .5s;
-  }
-  
-  .txt_field input:focus ~ label,
-  .txt_field input:valid ~ label{
-	top: -5px;
-	color: #754ef9;
-  }
-  
-  .txt_field input:focus ~ span::before,
-  .txt_field input:Valid ~ span::before{
-	width: 100%;
-  }
-  
-  .pass{
-	margin: -5px 0 20px 5px;
-	color: #a6a6a6;
-	cursor: pointer;
-  }
-  
-  .pass:hover{
-	text-decoration: underline;
-  }
-  
-  input[type="Submit"]{
-	width: 100%;
-	height: 50px;
-	border: 1px solid;
-	border-radius: 25px;
-	font-size: 18px;
-	font-weight: 700;
-	cursor: pointer;
-  
-  }
-  
-  input[type="Submit"]:hover{
-	background: #754ef9;
-	color: #e9f4fb;
-	transition: .5s;
-  }
-  
-  .signup_link{
-	margin: 30px 0;
-	text-align: center;
-	font-size: 16px;
-	color: #666666;
-  }
-  
-  .signup_link a{
-	color: #754ef9;
-	text-decoration: none;
-  }
-  
-  .signup_link a:hover{
-	text-decoration: underline;
-  }
-  
-  .HomeAbout{
-	width: 100vw;
-	height: 25vh;
-  }
-
-  #error {
-	color: red;
-	text-align: center;
-	margin-left:250px;
-  }
-#success {
-color: #28a745; /* Green color */
-text-align: center;
-margin-left:35px;
- /* Add some top margin for spacing */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-image: url("/project/Images/login.webp");
+    align-items: center;
+    background-size: cover;
+    height: 100vh;
 }
 
+.container {
+    background-color: #fff;
+    padding: 40px; /* Increased padding for more space inside the container */
+    border-radius: 8px;
+	border:5px solid #754ef9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Increased width for a larger container */
+}
+
+
+input {
+    width: 100%;
+    padding: 15px; /* Increased padding for input elements */
+    margin-bottom: 15px; /* Increased margin for more space between input elements */
+    box-sizing: border-box;
+}
+
+#button {
+    background-color: #754ef9;
+    color: white;
+    padding: 15px; /* Increased padding for the button */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#error {
+    color: red;
+}
+
+#message {
+    color: green;
+}

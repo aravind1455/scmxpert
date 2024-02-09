@@ -12,37 +12,33 @@
     <div class="center">
       <h1>Register</h1>
       <form id="signupForm" method="post" action="/signup">
-        <div id="success">
+        <div id="message">
           {% if success_message %}
           <p>{{ success_message }}</p>
           {% endif %}
         </div>
         <span id="error">{{error_message}}</span>
         <div class="txt_field">
-          <input type="text" name="username" id="username" required>
-          <span></span>
-          <label>Name</label>
+          <input type="text" name="username" id="username" placeholder="Username" required>
+          
           <p id="usernameError" class="error"></p>
         </div>
         <div class="txt_field">
-          <input type="email" name="email" id="email" required>
-          <span></span>
-          <label>Email</label>
+          <input type="email" name="email" id="email" placeholder="Email" required>
+          
           <p id="emailError" class="error"></p>
         </div>
         <div class="txt_field">
-          <input type="password" name="password" id="password" required>
-          <span></span>
-          <label>Password</label>
+          <input type="password" name="password" id="password" placeholder="Password" required>
+          
           <p id="passwordError" class="error"></p>
         </div>
         <div class="txt_field">
-          <input type="password" name="confirm" id="confirm" required>
-          <span></span>
-          <label>Confirm Password</label>
+          <input type="password" name="confirm" id="confirm" placeholder="Confirm Password`" required>
+         
           <p id="confirmError" class="error"></p>
         </div>
-        <input name="submit" type="submit" value="Sign Up" onclick="validateForm()">
+        <input id="button" name="submit" type="submit" value="Sign Up" onclick="validateForm()">
         <div class="signup_link">
           Have an Account ? <a  href="/login">Login Here</a>
         </div>

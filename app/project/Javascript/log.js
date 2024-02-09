@@ -47,7 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch(error => {
                 $("#error").text(`${error.message}`);
-                $(".error-message").css("visibility", "visible");
+                setTimeout(function () {
+                    $("#error").text("");
+                }, 2000);
             });
     });
 });

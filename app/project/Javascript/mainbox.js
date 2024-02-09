@@ -19,7 +19,7 @@ right.addEventListener("mouseenter", () => {
     // Add the "hover-right" class to the "container" element on mouseenter
     container.classList.add("hover-right");
 });
-
+//class list is an method
 right.addEventListener("mouseleave", () => {
     // Remove the "hover-right" class from the "container" element on mouseleave
     container.classList.remove("hover-right");

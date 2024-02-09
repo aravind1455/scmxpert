@@ -47,7 +47,13 @@ color: rgb(47, 141, 70);
 
 .icn { 
 height: 30px; 
+
 } 
+.icon{
+    margin-top: 10px;
+    height: 30px; 
+    margin-left: 1700px;
+}
 .menuicn { 
 cursor: pointer; 
 } 
@@ -174,7 +180,7 @@ gap: 30px;
 } 
 
 .option1 { 
-border-left: 4px solid #010058af; 
+border-left: 4px solid rgba(1, 0, 88, 0.686); 
 background-color: var(--Border-color); 
 color: white; 
 cursor: pointer; 
@@ -274,4 +280,4 @@ background-color: var(--Border-color);
 
 }
 
-    
+

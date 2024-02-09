@@ -4,36 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, 
-				initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEW SHIPMENTS</title>
     <link rel="stylesheet" href="/project/Css/Dashboard.css">
-    <!-- <link rel="stylesheet" href="/project/Css/mainbox.css"> -->
     <link rel="stylesheet" href="/project/Css/NewShipment.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.js"
-        integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
-    
-
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
     <!-- for header part -->
     <header>
-
         <div class="logosec">
-
             <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
                 class="icn menuicn" id="menuicn" alt="menu-icon">
             <div class="logo">SCMXpert</div>
         </div>
+        <a href="/contact"><div><img src= 
+            "/project/Images/contact.jpg" 
+                             class="icon" 
+                             alt=""></div></a>
         <a href="/myaccount">
             <div class="dp">
                 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
                     class="dpicn" alt="dp">
+            </div>
         </a>
-        </div>
     </header>
+
     <div class="main-container">
         <div class="navcontainer">
             <nav class="nav">
@@ -50,10 +48,10 @@
                         </div>
                     </a>
                     <!-- <div class="nav-option option">
-						<img src="/project/Images/user.png"
-							class="nav-img" alt="account">
-						<a href="/myaccount"><h3>My Account</h3></a>
-					</div> -->
+                        <img src="/project/Images/user.png"
+                            class="nav-img" alt="account">
+                        <a href="/myaccount"><h3>My Account</h3></a>
+                    </div> -->
                     <a href="/changerole" class="no-underline" id="update1" style="display: none;">
                         <div class="option2 nav-option" id="update" style="display: none;">
                             <img src="/project/Images/updaterole.jpg" class="nav-img" alt="update">
@@ -75,6 +73,12 @@
                             <h3>NEW SHIPMENT</h3>
                         </div>
                     </a>
+                    <a href="/calculator" class="no-underline">
+                        <div class="nav-option option3">
+                            <img src="/project/Images/cal.jpg" class="nav-img" alt="newshipment">
+                            <h3>SHIPMENT CALCULATOR</h3>
+                        </div>
+                    </a>
 
                     <a href="/devicedata" class="no-underline">
                         <div class="nav-option option4">
@@ -83,13 +87,13 @@
                         </div>
                     </a>
                     <!-- <div class="nav-option option4">
-						<img src="/project/Images/logout2.jpg" class="dp" alt="dashboard">
-						<button onclick="logout()" id="logout"><h3>LOG-OUT</h3></button>
-				</div> -->
+                        <img src="/project/Images/logout2.jpg" class="dp" alt="dashboard">
+                        <button onclick="logout()" id="logout"><h3>LOG-OUT</h3></button>
+                    </div> -->
                     <a onclick="logout()">
                         <div class="nav-option option4">
                             <img src="/project/Images/logout2.jpg" class="nav-img" alt="logout">
-                            <h3 style="color:rgb(71, 5, 77)">LOG-OUT</h3>
+                            <h3 style="color:#3f0097">LOG-OUT</h3>
                         </div>
                     </a>
                 </div>
@@ -116,14 +120,17 @@
                                 <div class="input-field">
                                     <label>Route Details <i id="star">*</i></label>
                                     <select type="text" id="route_details" placeholder="Route Details" required>
-                                        <option class="input-option">HYDERABAD-MUMBAI</option>
-                                        <option class="input-option">TIRUPATI-BANGLORE</option>
-                                        <option class="input-option">CHENNAI-MYSORE</option>
+                                        <option>---Select Routes---</option>
+                                        <option class="input-option">New York</option>
+                                        <option class="input-option">Chennai</option>
+                                        <option class="input-option">Bengaluru</option>
+                                        <option class="input-option">London</option>
                                     </select>
                                 </div>
                                 <div class="input-field">
                                     <label>Goods Type <i id="star">*</i></label>
                                     <select type="text" id="goods_type" placeholder="Goods Type" required>
+                                        <option>---Select Goods---</option>
                                         <option class="input-option">MEDICAL</option>
                                         <option class="input-option">ELECTRICAL</option>
                                         <option class="input-option">AUTOMOTIVE PARTS</option>
@@ -136,7 +143,7 @@
                                 <div class="input-field">
                                     <label>Device <i id="star">*</i></label>
                                     <select type="text" id="device" placeholder="Device" required>
-                                        <option>DEVICE ID</option>
+                                        <option>---Select Id---</option>
                                         <option class="input-option" value="1156053076">1156053076</option>
                                         <option class="input-option" value="1156053077">1156053077</option>
                                         <option class="input-option" value="1156053078">1156053078</option>
@@ -194,7 +201,6 @@
                             <button type="clear">clear</button>
                         </div>
                     </div>
-
             </div>
         </div>
     </div>

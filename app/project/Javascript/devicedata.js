@@ -15,12 +15,12 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = '/adminpage';
     }
 });
-
+// Fetch device data on button click
 $(document).ready(function () {
     $("#submit").on("click", function (event) {
         event.preventDefault();
         const selectedDeviceId = $("#device_id").val();
-
+ // Make a POST request to '/devicedatafirst'
         fetch("/devicedatafirst", {
             method: "POST",
             headers: {
@@ -43,6 +43,7 @@ $(document).ready(function () {
                 }
                 return response.json();
             })
+             // Construct HTML table rows based on the device data
             .then(response => {
                 console.log(response);
 
@@ -72,6 +73,7 @@ $(document).ready(function () {
             .catch(error => {
                 console.log("Error:", error.message);
                 $("#error").text(error.message);
+                $("#error").css("visibility", "visible");
                 setTimeout(function () {
                     $("#error").text("");
                 }, 2000);
@@ -79,13 +81,14 @@ $(document).ready(function () {
     });
 });
 
+
 let menuicn = document.querySelector(".menuicn");
 let nav = document.querySelector(".navcontainer");
 
 menuicn.addEventListener("click", () => {
     nav.classList.toggle("navclose");
 });
-
+// Function to handle user logout
 function logout() {
     localStorage.removeItem("access_token");
     sessionStorage.clear();

@@ -2,32 +2,31 @@ from fastapi import APIRouter, Request, Depends, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from routes.login import *
-from database.database import *
+
+from database.database import shipment
 from pydantic import BaseModel
-from fastapi.security import OAuth2PasswordBearer
+from routes.Jwt_Token import get_current_user,oauth2_scheme,decode_token
 
 # Create an instance of APIRouter to define routes for this specific API section
 route = APIRouter()
 html = Jinja2Templates(directory="Templates")
 route.mount("/project", StaticFiles(directory="project"), name="project")
 
-# OAuth2 Password Bearer token URL
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
+
 
 # Define a Pydantic model for representing shipment data in the request body
 class ShipmentData(BaseModel):
-    shipment_number: str
-    container_number: str
+    shipment_number: int
+    container_number: int
     route_details: str
     goods_type: str
-    device: str
+    device: int
     expected_delivery: str
-    po_number: str
-    delivery_number: str
-    ndc_number: str
-    batch_id: str
-    serial_number: str
+    po_number: int
+    delivery_number: int
+    ndc_number: int
+    batch_id: int
+    serial_number: int
     shipment_description: str
 
 @route.get("/myshipments")
@@ -42,7 +41,7 @@ def sign1(request: Request, shipment1: ShipmentData, token: str = Depends(oauth2
             raise HTTPException(status_code=400, detail="All fields must be filled")
 
         # Check if shipment_number has exactly 7 characters
-        if len(shipment1.shipment_number) != 7:
+        if len(str(shipment1.shipment_number)) != 7:
             raise HTTPException(status_code=400, detail="Shipment number must be 7 characters")
 
         existing_data = shipment.find_one({"shipment_number": shipment1.shipment_number}, {"_id": 0})

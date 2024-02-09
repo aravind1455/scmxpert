@@ -6,7 +6,6 @@ import os
 load_dotenv()
 
 # Kafka configuration
-# kafka_bootstrap_servers = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
 kafka_bootstrap_servers = os.getenv("KAFKA_BOOTSTRAP_SERVERS")
 kafka_conf = {'bootstrap.servers': kafka_bootstrap_servers}
 producer = Producer(kafka_conf)

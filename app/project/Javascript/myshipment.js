@@ -28,7 +28,6 @@ $(document).ready(function(){
             if (response.status !== 200) {
                 throw new Error(`Status ${response.status}`);
             }
-            // parse the response as JSON
             return response.json();
         })
         .then(response => {
@@ -38,6 +37,7 @@ $(document).ready(function(){
 
             let shipment_data = "";
             for (let shipment_no = 0; shipment_no < response.length; shipment_no++) {
+                // Access the current shipment in the loop
                 const shipment = response[shipment_no];
                 shipment_data = shipment_data + "<tr><td>"
                     + shipment.shipment_number + "</td><td>"
@@ -75,6 +75,8 @@ $(document).ready(function(){
         $("#update1").css("display","flex");
     }
 });
+
+
 
 function logout() {
     localStorage.removeItem("access_token");

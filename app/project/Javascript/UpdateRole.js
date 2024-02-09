@@ -21,21 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     }),
                 })
                     .then(response => {
-                        if (!response.ok) {
-                            throw new Error(`Status ${response.detail}`);
-                        }
                         return response.json();
                     })
-                    .then(data => {
-                        console.log(data.message);
-                        $("#error").text(data.message);
+                    .then(response => {
+                        console.log(response);
+                        $("#error").text(response.message);
                     })
                     .catch(error => {
                         console.log("Error:", error.message);
-
-                        if (error ) {
-                            $("#error").text(`User not found`);
-                        } 
+                        $("#error").text("user not found");
+  
                     });
             } else {
                 console.log("Token not available. Perform authentication or redirect to login page.");

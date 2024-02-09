@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch(error => {
                 if (error === "Unauthorized" || error.message === "Token has expired") {
-                    console.log("Token is expired. Logging out...");
+                    // console.log("Token is expired. Logging out...");
                     alert("Unauthorized access. Redirecting to login...");
                     window.location.href = "/login";
                     return;

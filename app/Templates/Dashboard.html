@@ -2,103 +2,108 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, 
-				initial-scale=1.0">
-	<title>DASHBOARD</title>
-	<link rel="stylesheet" href="/project/Css/Dashboard.css">
-	<link rel="stylesheet" href="/project/Css/MainBox.css">
-	<script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASHBOARD</title>
+    <link rel="stylesheet" href="/project/Css/Dashboard.css">
+    <link rel="stylesheet" href="/project/Css/MainBox.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-	<div id="dashboardContainer">
-	<!-- for header part -->
-	<header>
-		<div class="logosec">
-			
-			<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
-				class="icn menuicn" id="menuicn" alt="menu-icon">
-				<div class="profile-name" id="username" style="font-size:xx-large;color:sandybrown"></div>
-				
-		</div>
-		<a href="/myaccount"><div class="dp">
-			<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
-				class="dpicn" alt="dp"></a>
-		</div>
-		
-	</header>
-	<div class="main-container">
-		<div class="navcontainer">
-			<nav class="nav">
-				<div class="nav-upper-options">
-					<div class="nav-option option1"> 
-						<img src="/project/Images/dp1.jpg" class="dp" alt="dashboard"> 
-                        <h3>SCMXpert</h3> 
-					</div> 
-					<a href="/Dashboard" class="no-underline"><div class="nav-option option">
-						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
-							class="nav-img" alt="dashboard">
-						<h3> DASHBOARD</h3>
-					</div></a>
-					<!-- <div class="nav-option option">
-						<img src="/project/Images/user.png"
-							class="nav-img" alt="account">
-						<a href="/myaccount"><h3>My Account</h3></a>
-					</div> -->
-					<a href="/changerole" class="no-underline" id="update1" style="display: none;"><div class="option2 nav-option" id="update" style="display: none;">
-						<img src="/project/Images/updaterole.jpg"
-							class="nav-img" alt="update">
-						<!-- <a href="/changerole"><h3>UPDATE ROLE</h3></a> -->
-						<h3>UPDATE ROLE</h3>
-					</div></a>
+    <div id="dashboardContainer">
+        <!-- for header part -->
+        <header>
+            <div class="logosec">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png" class="icn menuicn" id="menuicn" alt="menu-icon">
+                <div class="profile-name" id="username" style="font-size:xx-large;color:sandybrown"></div>
+            </div>
+          
+            <a href="/contact"><div><img src= 
+                "/project/Images/contact.jpg" 
+                                 class="icon" 
+                                 alt=""></div></a>
+            <a href="/myaccount">
+                <div class="dp">
+                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png" class="dpicn" alt="dp">
+                    
+                </div>
+            </a>
+            
+        </header>
+        <div class="main-container">
+            <div class="navcontainer">
+                <nav class="nav">
+                    <div class="nav-upper-options">
+                        <div class="nav-option option1">
+                            <img src="/project/Images/dp1.jpg" class="dp" alt="dashboard">
+                            <h3>SCMXpert</h3>
+                        </div>
+                        <a href="/Dashboard" class="no-underline">
+                            <div class="nav-option option">
+                                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png" class="nav-img" alt="dashboard">
+                                <h3> DASHBOARD</h3>
+                            </div>
+                        </a>
+                        <!-- <div class="nav-option option">
+                            <img src="/project/Images/user.png" class="nav-img" alt="account">
+                            <a href="/myaccount"><h3>My Account</h3></a>
+                        </div> -->
+                        <a href="/changerole" class="no-underline" id="update1" style="display: none;">
+                            <div class="option2 nav-option" id="update" style="display: none;">
+                                <img src="/project/Images/updaterole.jpg" class="nav-img" alt="update">
+                                <!-- <a href="/changerole"><h3>UPDATE ROLE</h3></a> -->
+                                <h3>UPDATE ROLE</h3>
+                            </div>
+                        </a>
 
-					<a href="/shipmenttable" class="no-underline"><div class="option2 nav-option">
-						<img src="/project/Images/database.jpg"
-							class="nav-img" alt="myshipment">
-						<h3>MY SHIPMENT</h3>
-					</div></a>
+                        <a href="/shipmenttable" class="no-underline">
+                            <div class="option2 nav-option">
+                                <img src="/project/Images/database.jpg" class="nav-img" alt="myshipment">
+                                <h3>MY SHIPMENT</h3>
+                            </div>
+                        </a>
 
-					<a href="/myshipments" class="no-underline"><div class="nav-option option3">
-						<img src="/project/Images/download (1).jpg"
-							class="nav-img" alt="newshipment">
-							<h3>NEW SHIPMENT</h3>
-					</div></a>
+                        <a href="/myshipments" class="no-underline">
+                            <div class="nav-option option3">
+                                <img src="/project/Images/download (1).jpg" class="nav-img" alt="newshipment">
+                                <h3>NEW SHIPMENT</h3>
+                            </div>
+                        </a>
 
-					<a href="/devicedata" class="no-underline"><div class="nav-option option4">
-						<img src="/project/Images/devicedata.jpg"
-							class="nav-img" alt="devicedata">
-							<h3> DEVICE DATA</h3>
-					</div></a>
-					<a onclick="logout()"><div class="nav-option option4">
-						<img src="/project/Images/logout2.jpg" class="nav-img" alt="dashboard">
-						<h3 style="color:rgb(71, 5, 77)">LOG-OUT</h3>
-					</div></a>
-				</div>
-			</nav>
-		</div>
-		<div class="main">
-			<div class="container">
-				<div class="split left">
-					<h1>Create Shipment</h1>
-					<a href="/myshipments" class="button">NEW SHIPMENT</a>
-				</div>
-				<div class="split right">
-					<h1>Get Devicedata</h1>
-					<a href="/devicedata" class="button">GET DATA</a>
-					<script src="/project/Javascript/mainbox.js"></script>
-					<script src="/project/Javascript/log.js"></script>
-					
-					<!-- <p id="value" style="display: none;">{{token}}</p> -->
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-	</div>
-</div>
-	<script src="/project/Javascript/Dashboard.js"></script>
+                        <a href="/devicedata" class="no-underline">
+                            <div class="nav-option option4">
+                                <img src="/project/Images/devicedata.jpg" class="nav-img" alt="devicedata">
+                                <h3> DEVICE DATA</h3>
+                            </div>
+                        </a>
+                        <a onclick="logout()">
+                            <div class="nav-option option4">
+                                <img src="/project/Images/logout2.jpg" class="nav-img" alt="dashboard">
+                                <h3 style="color:#3f0097">LOG-OUT</h3>
+                            </div>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="main">
+                <div class="container">
+                    <div class="split left">
+                        <h1>Create Shipment</h1>
+                        <a href="/myshipments" class="button">NEW SHIPMENT</a>
+                    </div>
+                    <div class="split right">
+                        <h1>Device data</h1>
+                        <a href="/devicedata" class="button">DEVICE DATA</a>
+                        <script src="/project/Javascript/mainbox.js"></script>
+                        <script src="/project/Javascript/log.js"></script>
+                        <!-- <p id="value" style="display: none;">{{token}}</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/project/Javascript/Dashboard.js"></script>
 </body>
-
 </html>

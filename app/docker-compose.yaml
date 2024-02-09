@@ -1,1 +1,56 @@
+version: '3'
 
+services:
+  scmxpert: #app
+    image: 'scmxpert:latest'
+    ports:
+      - "8000:8000"
+
+
+  # Zookeper for Kafka
+  zookeeper:
+    image: 'bitnami/zookeeper:latest'  # Use Bitnami Zookeeper image
+    ports:
+      - "2181:2181"
+    depends_on:
+      - scmxpert
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+
+  # Kafka service
+  kafka:
+    image: 'bitnami/kafka:latest'  # Use Bitnami Kafka image
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_HEAP_OPTS=-Xmx1G
+
+  # Server service
+  server:
+    image: kafkaserver:latest  # Use custom socket app image from Docker Hub
+    ports:
+      - "12345:12345"
+    depends_on:
+      - kafka
+
+  # Producer service
+  producer:
+    image: kafkaproducer:latest  # Use custom producer app image from Docker Hub
+    environment:
+      - bootstrap_servers=kafka:9092
+      - host=server
+    depends_on:
+      - server
+      - kafka
+
+  # Consumer service
+  consumer:
+    image: kafkaconsumer:latest  # Use custom consumer app image from Docker Hub
+    environment:
+      - bootstrap_servers=kafka:9092
+    depends_on:
+      - producer

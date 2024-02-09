@@ -1,9 +1,8 @@
 from fastapi import APIRouter, HTTPException, Request, Form
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from database.database import *
+from database.database import signup
 from passlib.context import CryptContext
-
 
 route = APIRouter()
 html = Jinja2Templates(directory="Templates")
@@ -50,4 +49,4 @@ def sign(request: Request, username: str = Form(...), email: str = Form(...), ro
     }
     signup.insert_one(signupdata)
     return html.TemplateResponse("SignupPage.html", {"request": request,"success_message": "User registered successfully"})
-    # return html.TemplateResponse("signup.html", {"request": request })
+  

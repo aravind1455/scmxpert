@@ -7,8 +7,6 @@ route=APIRouter()
 html = Jinja2Templates(directory = "Templates")
 route.mount("/project", StaticFiles(directory="project"), name = "project")
 
-@route.get("/myaccount")
+@route.get("/calculator")
 def sign(request: Request):
-        return html.TemplateResponse("MyAccount.html", {"request": request})
-
-
+        return html.TemplateResponse("Calculator.html", {"request": request})

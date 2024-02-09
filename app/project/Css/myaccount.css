@@ -70,4 +70,9 @@ body{
   .container i:hover{
     color: #03bfbc;
   }
+  .icon{
+    margin-top: 10px;
+    height: 30px; 
+    margin-left: 2100px;
+  }
   

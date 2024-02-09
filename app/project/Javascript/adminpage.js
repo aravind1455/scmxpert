@@ -4,5 +4,4 @@ function logout() {
     sessionStorage.removeItem("email");
     sessionStorage.removeItem("role");
     window.location.href= "/";
-
 }
