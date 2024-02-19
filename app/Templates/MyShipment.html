@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,14 +77,21 @@
         <div class="main">
             <span id="error"></span>
             <div class="table1">MY SHIPMENTS</div>
+            <div class="adminvis" id="adminvis" style="display: none;">
+                <input type="text" id="usernameInput" placeholder="Enter Username">
+                <button id="searchButton">Search</button>
+            </div>
             <div class="table-container">
+               
                 <div class="table-horizontal-container">
                     <table class="unfixed-table">
                         <!-- Add this button to your HTML -->
                         
-
+                        
                         <tbody>
+                           
                             <tr id="header">
+                                <th>User_Name</th>
                                 <th>Shipment Number</th>
                                 <th>Container Number</th>
                                 <th>Route Details</th>

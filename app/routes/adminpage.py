@@ -9,4 +9,4 @@ route.mount("/project", StaticFiles(directory="project"), name = "project")
 # Route to display the dashboard page
 @route.get("/adminpage")
 def sign(request: Request):
-    return html.TemplateResponse("adminpage.html", {"request": request})
+    return html.TemplateResponse("AdminPage.html", {"request": request})

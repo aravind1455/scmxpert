@@ -28,6 +28,7 @@ function handleProfilePhotoUpload() {
                 sessionStorage.setItem('profileImageSrc', e.target.result);
             };
             // data:[<mediatype>][;base64],<data>
+           // It also stores the base64 encoded image data in the session storage.
             reader.readAsDataURL(file);
         }
     };

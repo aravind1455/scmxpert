@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from passlib.context import CryptContext
-from database.database import signup
+from config.config import signup
 from routes.Jwt_Token import create_access_token
 
 route = APIRouter()
@@ -15,7 +15,7 @@ pwd_cxt = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 @route.get("/login")
 def login(request: Request):
-    return html.TemplateResponse("login.html", {"request": request})
+    return html.TemplateResponse("Login.html", {"request": request})
 
 
 @route.post("/login")

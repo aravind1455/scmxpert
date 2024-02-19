@@ -87,12 +87,42 @@ th:nth-child(odd), td:nth-child(odd) {
   border-radius: 10px;
   background-color: rgb(253, 171, 47);
   position: absolute;
-  margin-left: 900px;
-  margin-top: 200px;
-  font-size: 40px;
+  margin-left: 1040px;
+  margin-top: 250px;
+  font-size: 20px;
 }
 .icon{
   margin-top: 10px;
   height: 30px; 
   margin-left: 2100px;
+}
+
+#usernameInput {
+  padding: 5px 10px; /* Adjust padding as needed */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 3px; /* Rounded corners */
+  margin-left: 400px;
+  margin-top: 20px;
+}
+
+#searchButton {
+  padding: 6px 12px; /* Adjust padding as needed */
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 3px; /* Rounded corners */
+  cursor: pointer; /* Cursor style */
+
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+/* Optionally, you can add some hover and focus effects for better user experience */
+#searchButton:hover {
+  background-color: #0056b3; /* Darker color on hover */
+}
+
+#searchButton:focus {
+  outline: none; /* Remove focus outline */
+  box-shadow: 0 0 0 2px #007bff; /* Add a subtle focus border */
 }

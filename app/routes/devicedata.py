@@ -36,6 +36,9 @@ async def get_device_data(request: Request, token: str = Depends(get_current_use
             return HTTPException(status_code=400, detail="Device Data Not Found")
     except HTTPException as http_error:
             return JSONResponse(content={"error_message": http_error.detail})
+    except Exception as e:
+        # Handle other exceptions with a 500 status code
+        return JSONResponse(content={"detail": str(e)}, status_code=500)
 
 
 

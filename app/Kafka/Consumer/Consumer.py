@@ -48,6 +48,10 @@ try:
                 print(data, 'data before the db')
                 # converts the JSON-formatted string (data) back into a Python object (likely a dictionary) using the json module.
                 collection.insert_one(json.loads(data))
+
+                # Manually commit the offset for the message
+                consumer.commit(message=msg) 
+
             except Exception as e:
                 print(e)
 

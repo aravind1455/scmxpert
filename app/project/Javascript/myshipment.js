@@ -40,6 +40,7 @@ $(document).ready(function(){
                 // Access the current shipment in the loop
                 const shipment = response[shipment_no];
                 shipment_data = shipment_data + "<tr><td>"
+                    + shipment.user + "</td><td>"
                     + shipment.shipment_number + "</td><td>"
                     + shipment.container_number + "</td><td>"
                     + shipment.route_details + "</td><td>"
@@ -55,10 +56,52 @@ $(document).ready(function(){
             }
 
             $("#table_data").html(shipment_data);
+
+            // Add event listener for search button
+            $("#searchButton").click(function() {
+                const username = $("#usernameInput").val().trim();
+                if (username !== "") {
+                    // Perform search based on username
+                    //It takes each item from the response array and checks if the user property of that item matches the username variable.
+                    const filteredData = response.filter(item => item.user === username);
+                    if (filteredData.length > 0) {
+                        // Display filtered data
+                        let filteredHtml = "";
+                        filteredData.forEach(item => {
+                            filteredHtml += "<tr><td>"
+                                + item.user + "</td><td>"
+                                + item.shipment_number + "</td><td>"
+                                + item.container_number + "</td><td>"
+                                + item.route_details + "</td><td>"
+                                + item.goods_type + "</td><td>"
+                                + item.device + "</td><td>"
+                                + item.expected_delivery + "</td><td>"
+                                + item.po_number + "</td><td>"
+                                + item.delivery_number + "</td><td>"
+                                + item.ndc_number + "</td><td>"
+                                + item.batch_id + "</td><td>"
+                                + item.serial_number + "</td><td>"
+                                + item.shipment_description + "</td></tr>";
+                        });
+                        $("#table_data").html(filteredHtml);
+                    } else {
+                        $("#error").text("No shipments found ");
+                        setTimeout(function () {
+                            $("#error").text("");
+                        }, 2000);
+                    }
+                } else {
+                    $("#error").text("Please enter a username");
+                    setTimeout(function () {
+                        $("#error").text("");
+                    }, 2000);
+                    
+                }
+            });
         })
         .catch(error => {
             $("#error").text(error.message);
-            $("#error").css("visibility", "visible");
+            // $("#error").css("visibility", "visible");
             setTimeout(function () {
                 $("#error").text("");
             }, 2000);
@@ -69,14 +112,12 @@ $(document).ready(function(){
         redirectToLogin();
     }
 });
-$(document).ready(function(){
-    if (sessionStorage.getItem("role")==="admin"){
-        $("#update").css("display","flex");
-        $("#update1").css("display","flex");
+
+$(document).ready(function() {
+    if (sessionStorage.getItem('role') === "admin") {
+        $("#adminvis").css("display", "block");
     }
-});
-
-
+})
 
 function logout() {
     localStorage.removeItem("access_token");

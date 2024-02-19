@@ -2,10 +2,9 @@ from fastapi import APIRouter, Request, Depends, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-
-from database.database import shipment
+from config.config import shipment
 from pydantic import BaseModel
-from routes.Jwt_Token import get_current_user,oauth2_scheme,decode_token
+from routes.Jwt_Token import oauth2_scheme,decode_token
 
 # Create an instance of APIRouter to define routes for this specific API section
 route = APIRouter()
@@ -50,8 +49,10 @@ def sign1(request: Request, shipment1: ShipmentData, token: str = Depends(oauth2
 
         # Decode token to get user email
         decoded_token = decode_token(token[7:len(token)])
+        # print(decoded_token)
 
         base = {
+            "user":decoded_token["sub"],
             "email": decoded_token["email"],
             'shipment_number': shipment1.shipment_number,
             "container_number": shipment1.container_number,
@@ -66,6 +67,7 @@ def sign1(request: Request, shipment1: ShipmentData, token: str = Depends(oauth2
             "serial_number": shipment1.serial_number,
             "shipment_description": shipment1.shipment_description
         }
+ 
 
         # Insert shipment data into the database
         shipment.insert_one(base)
@@ -73,6 +75,9 @@ def sign1(request: Request, shipment1: ShipmentData, token: str = Depends(oauth2
 
     except HTTPException as http_error:
         return JSONResponse(content={"error_message": http_error.detail})
+    except Exception as e:
+        # Handle other exceptions with a 500 status code
+        return JSONResponse(content={"detail": str(e)}, status_code=500)
 
 
 

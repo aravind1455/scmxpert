@@ -68,6 +68,7 @@ $(document).ready(function () {
                     $("#table_data1").html(ship_data);
                 } else {
                     throw new Error("Invalid data format");
+                    $("#error").text("Invalid data format");
                 }
             })
             .catch(error => {

@@ -3,17 +3,14 @@ from jose import jwt, ExpiredSignatureError, JWTError
 from fastapi.security import OAuth2PasswordBearer
 from datetime import datetime, timedelta
 from typing import Optional
-import secrets
-from database.database import signup
+from config.config import signup,SECRET_KEY,ALGORITHM,ACCESS_TOKEN_EXPIRE_MINUTES
 
 
 # Create an instance of CryptContext for password hashing and verification
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
 
-SECRET_KEY=secrets.token_hex(32)
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+
 # Function to create an access token with an optional expiration time (expires_delta).
 
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
@@ -29,6 +26,7 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
 
 # Function to decode a token, checking for expiration and handling exceptions.
 def decode_token(token: str):
+   
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         # Check token expiration
@@ -46,6 +44,7 @@ def decode_token(token: str):
 #A function that depends on the oauth2_scheme to extract and validate the access token. 
 #It uses the decode_token function to decode the token and fetch user data from the database.
 def get_current_user(token: str = Depends(oauth2_scheme)):
+   
     try:
         # print(token)
         payload = decode_token(token)

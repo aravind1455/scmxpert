@@ -3,6 +3,10 @@ if (localStorage.getItem("access_token") === null) {
     window.location.href= "/login";
 }
 
+if (sessionStorage.getItem("role") === "user") {
+    window.location.href = "/login";
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     $(document).ready(function () {
         $("#submit").on("click", function (event) {
@@ -24,11 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         return response.json();
                     })
                     .then(response => {
-                        console.log(response);
+                        // console.log(response);
                         $("#error").text(response.message);
                     })
                     .catch(error => {
-                        console.log("Error:", error.message);
+                        // console.log("Error:", error.message);
                         $("#error").text("user not found");
   
                     });

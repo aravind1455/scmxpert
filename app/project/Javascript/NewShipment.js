@@ -1,4 +1,3 @@
-
 if (localStorage.getItem("access_token") === null) {
     window.location.href= "/login";
 }
@@ -64,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (response.status === 200) {
                     return response.json();
                 } else {
-                    throw new Error(response.status);
+                    throw new Error("fill the form please");
                 }
             })
             .then(jsonresponse => {
@@ -82,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 console.log("Error:", error.message);
                 $("#error").text(error.message);
-                $("#error").css("visibility", "visible");
+                // $("#error").css("visibility", "visible");
                 setTimeout(function () {
                     $("#error").text("");
                 }, 2000);
