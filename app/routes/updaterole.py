@@ -16,7 +16,7 @@ route.mount("/project", StaticFiles(directory="project"), name = "project")
 def email(request: Request):
     return html.TemplateResponse("UpdateRole.html", {"request": request})
 
-    
+
 
 @route.post("/changeroleuser")
 def change(request: Request, user: dict, token: str = Depends(get_current_user)):
@@ -40,7 +40,7 @@ def change(request: Request, user: dict, token: str = Depends(get_current_user))
 
         # Check if the user already has the admin role
         if result["role"] == "admin":
-            return JSONResponse(content={"message": "User is already an admin"}, status_code=200)
+            return JSONResponse(content={"message": "User is already an admin"}, status_code=400)
 
         # Update user role to admin
         result1 = signup.update_one({"user": user["user"]}, {"$set": {"role": "admin"}})

@@ -3,8 +3,8 @@ from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from config.config import shipment
-from pydantic import BaseModel
 from routes.Jwt_Token import oauth2_scheme,decode_token
+from models.models import ShipmentData
 
 # Create an instance of APIRouter to define routes for this specific API section
 route = APIRouter()
@@ -13,26 +13,11 @@ route.mount("/project", StaticFiles(directory="project"), name="project")
 
 
 
-# Define a Pydantic model for representing shipment data in the request body
-class ShipmentData(BaseModel):
-    shipment_number: int
-    container_number: int
-    route_details: str
-    goods_type: str
-    device: int
-    expected_delivery: str
-    po_number: int
-    delivery_number: int
-    ndc_number: int
-    batch_id: int
-    serial_number: int
-    shipment_description: str
-
-@route.get("/myshipments")
+@route.get("/Newshipments")
 def sign(request: Request):
     return html.TemplateResponse("NewShipment.html", {"request": request})
 
-@route.post("/myshipments")
+@route.post("/Newshipments")
 def sign1(request: Request, shipment1: ShipmentData, token: str = Depends(oauth2_scheme)):
     try:
         # Check if any field is empty

@@ -64,11 +64,10 @@ $(document).ready(function () {
                             shipment.Route_From + "</td><td>" +
                             shipment.Route_To + "</td></tr>";
                     }
-
                     $("#table_data1").html(ship_data);
                 } else {
                     throw new Error("Invalid data format");
-                    $("#error").text("Invalid data format");
+                    // $("#error").text("Invalid data format");
                 }
             })
             .catch(error => {

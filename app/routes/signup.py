@@ -3,7 +3,8 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from config.config import signup
 from passlib.context import CryptContext
-from pydantic import BaseModel
+from models.models import Signup
+
 
 route = APIRouter()
 html = Jinja2Templates(directory="Templates")
@@ -11,13 +12,6 @@ route.mount("/project", StaticFiles(directory="project"), name="project")
 
 pwd_cxt = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-
-class Signup(BaseModel):
-    user: str
-    email: str
-    role: str
-    password: str
-    confirmpassword: str
 
 
 @route.get("/signup")
@@ -49,15 +43,7 @@ def sign(request: Request, username: str = Form(...), email: str = Form(...), ro
         raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
 
     pw = pwd_cxt.hash(password)
-    signup1=Signup(user=username, email=email,role=role,password=pw,confirmpassword=confirm)
-
-    # signupdata = {
-    #     "user": username,
-    #     "email": email,
-    #     "role": role,
-    #     "password": pw,
-    #     "confirmpassword": confirm
-    # }
+    signup1=Signup(user=username, email=email,role=role,password=pw,confirmpassword=pw)
 
     
     signup.insert_one(dict(signup1))

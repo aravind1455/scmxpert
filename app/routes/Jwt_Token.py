@@ -6,8 +6,6 @@ from typing import Optional
 from config.config import signup,SECRET_KEY,ALGORITHM,ACCESS_TOKEN_EXPIRE_MINUTES
 
 
-# Create an instance of CryptContext for password hashing and verification
-
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
 
 

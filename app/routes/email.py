@@ -25,9 +25,6 @@ pwd_cxt = CryptContext(schemes=["bcrypt"], deprecated="auto")
 def email(request: Request):
     return html.TemplateResponse("ForgetPassword.html", {"request": request})
 
-@route.get("/changepassword1")
-def email(request: Request):
-    return html.TemplateResponse("PasswordChange.html", {"request": request})
 
 
 
@@ -51,28 +48,11 @@ def change(request: Request, email: str = Form(...), password: str = Form(), con
         return JSONResponse(content={"detail": str(e)}, status_code=500)
     
 
-# @route.post("/changepassword1")
-# def change(request: Request, email: str = Form(), password: str = Form(), confirm: str = Form(),token: str = Depends(get_current_user)):
-  
-#     try:
-#         if token:
-#             result = signup.find_one({"email": email})
-#             # print(result)
-#             if result["email"] == token["email"]:
-#                 # Check if password and confirm_password match
-#                 if password == confirm:
-#                     pw = pwd_cxt.hash(password)
-#                     # Update password for the given email
-#                     signup.update_one({"email": email}, {"$set": {"password": pw, "confirmpassword": confirm}})
-#                     # Redirect to login page with success message
-#                     # return html.TemplateResponse("Login.html", {"request": request, "message": "Password updated successfully"})
-#                     return JSONResponse(content={"message": "Password updated successfully"}, status_code=200)
-#             # Redirect to the emailget page with an error message
-#             # return html.TemplateResponse("PasswordChange.html", {"request": request, "message": "Invalid email"})
-#             return JSONResponse(content={"message": "Invalid email"}, status_code=400)
-#     except Exception as e:
-#         # Handle other exceptions with a 500 status code
-#         return JSONResponse(content={"detail": str(e)}, status_code=500)
+
+@route.get("/changepassword1")
+def email(request: Request):
+    return html.TemplateResponse("PasswordChange.html", {"request": request})
+    
 
 
 @route.post("/changepassword1")

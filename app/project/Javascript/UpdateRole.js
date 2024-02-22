@@ -4,7 +4,8 @@ if (localStorage.getItem("access_token") === null) {
 }
 
 if (sessionStorage.getItem("role") === "user") {
-    window.location.href = "/login";
+    alert("Only Admin can change")
+    window.location.href = "/Dashboard";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -34,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     .catch(error => {
                         // console.log("Error:", error.message);
                         $("#error").text("user not found");
-  
                     });
             } else {
                 console.log("Token not available. Perform authentication or redirect to login page.");

@@ -108,16 +108,7 @@ overflow-x: hidden;  */
 padding: 0px 0px 0px 0px; 
 } 
 
-/* .main::-webkit-scrollbar-thumb { 
-background-image: 
-		linear-gradient(to bottom, rgb(0, 0, 85), rgb(0, 0, 50)); 
-} 
-.main::-webkit-scrollbar { 
-width: 5px; 
-} 
-.main::-webkit-scrollbar-track { 
-background-color: #9e9e9eb2; 
-}  */
+
 
 .box-container { 
 display: flex; 

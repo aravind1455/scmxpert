@@ -9,7 +9,7 @@ COPY requirements.txt /dashboard/app
 # Install project dependencies
 RUN pip install -r requirements.txt
 
-# Copy the FastAPI application files into the container
+# Copy the  application files into the container
 COPY . .
 
 # Expose the port that FastAPI will run on

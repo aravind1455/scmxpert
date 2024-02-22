@@ -9,3 +9,7 @@ function logout() {
 if (localStorage.getItem("access_token") === null) {
     window.location.href= "/login";
 }
+
+function Dashboard(){
+    window.location.href="/Dashboard"
+}
