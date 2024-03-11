@@ -8,7 +8,6 @@ from passlib.context import CryptContext
 from routes.Jwt_Token import get_current_user
 
 
-
 # Create an instance of APIRouter to define routes for this specific API section
 route = APIRouter()
 
