@@ -13,7 +13,6 @@ route.mount("/project", StaticFiles(directory="project"), name="project")
 pwd_cxt = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
-
 @route.get("/signup")
 def sign(request: Request):
     return html.TemplateResponse("SignupPage.html", {"request": request})
@@ -45,7 +44,6 @@ def sign(request: Request, username: str = Form(...), email: str = Form(...), ro
     pw = pwd_cxt.hash(password)
     signup1=Signup(user=username, email=email,role=role,password=pw,confirmpassword=pw)
 
-    
     signup.insert_one(dict(signup1))
     return html.TemplateResponse("SignupPage.html", {"request": request,"success_message": "User registered successfully"})
   

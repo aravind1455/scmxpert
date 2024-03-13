@@ -11,4 +11,3 @@ route.mount("/project", StaticFiles(directory="project"), name = "project")
 def sign(request: Request):
         return html.TemplateResponse("MyAccount.html", {"request": request})
 
-

@@ -25,8 +25,6 @@ def email(request: Request):
     return html.TemplateResponse("ForgetPassword.html", {"request": request})
 
 
-
-
 @route.post("/changepassword")
 def change(request: Request, email: str = Form(...), password: str = Form(), confirm: str = Form(...)):
     try:
